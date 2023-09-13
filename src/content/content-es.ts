@@ -25,6 +25,7 @@ export const nav_content: nav_content_type = {
   excel_to_pdf: "Excel a PDF",
   html_to_pdf: "HTML a PDF",
   convert_from_pdf: "Convertir desde PDF",
+  read_edit_pdf: "Leer y editar PDF",
   pdf_to_jpg: "PDF a JPG",
   pdf_to_word: "PDF a Word",
   pdf_to_powerpoint: "PDF a Powerpoint",

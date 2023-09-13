@@ -26,6 +26,7 @@ export const nav_content: nav_content_type = {
   html_to_pdf: "एचटीएमएल से पीडीएफ",
   web_to_pdf: "वेब से पीडीएफ",
   convert_from_pdf: "पीडीएफ से परिवर्तित करें",
+  read_edit_pdf: "पीडीएफ पढ़ें और संपादित करें",
   pdf_to_jpg: "पीडीएफ से जेपीजी",
   pdf_to_word: "पीडीएफ से शब्द",
   pdf_to_powerpoint: "पीडीएफ से पावरपॉइंट",
