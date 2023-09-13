@@ -1,5 +1,3 @@
-// import data from "../src/data";
-
 import Head from "next/head";
 import NavBar from "../../components/NavBar";
 import Tool from "../../components/Tool";
@@ -10,12 +8,8 @@ import {
   nav_content,
   tool,
   tools,
-  web2pdftool,
   downloadFile,
-  translate_pdf,
 } from "../../src/content/content-ar";
-import { useEffect } from "react";
-type _t = keyof typeof tool;
 
 type data_type = {
   title: string;
@@ -63,39 +57,22 @@ export default ({ item, lang }: { item: data_type; lang: string }) => {
 
     <>
       <Head>
-        <title>PDFEquips | {item.title}</title>
+        <title>{`PDFEquips | ${item.title}`}</title>
         <meta name="description" content={item.description} />
         <link rel="icon" href="/logo.png" />
         {/* needed for styles */}
       </Head>
       <NavBar lang={lang} nav_content={nav_content} />
-      {path == "/ar/split-pdf" ? (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <h2 className="display-4 text-center">{appology_message.title}</h2>
-          <p>{appology_message.reason}</p>
-        </div>
-      ) : (
-        <Tool
-          tools={tools}
-          data={item}
-          lang={lang}
-          errors={errors}
-          edit_page={edit_page}
-          pages={edit_page.pages}
-          page={edit_page.page}
-          web2pdftool={web2pdftool}
-          downloadFile={downloadFile}
-          translate_pdf={translate_pdf}
-        />
-      )}
+      <Tool
+        tools={tools}
+        data={item}
+        lang={lang}
+        errors={errors}
+        edit_page={edit_page}
+        pages={edit_page.pages}
+        page={edit_page.page}
+        downloadFile={downloadFile}
+      />
     </>
   );
 };
@@ -103,21 +80,4 @@ export default ({ item, lang }: { item: data_type; lang: string }) => {
 // export default ToolPage;
 export const routes = {
   "/merge-pdf": { item: tool["Merge_PDF"] },
-  "/split-pdf": { item: tool["Split_PDF"] },
-  "/translate-pdf": { item: tool["Translate_PDF"] },
-  "/compress-pdf": { item: tool["Compress_PDF"] },
-  "/pdf-to-powerpoint": { item: tool["PDF_to_Powerpoint"] },
-  "/jpg-to-pdf": { item: tool["JPG_to_PDF"] },
-  "/word-to-pdf": { item: tool["WORD_to_PDF"] },
-  "/powerpoint-to-pdf": { item: tool["POWERPOINT_to_PDF"] },
-  "/excel-to-pdf": { item: tool["EXCEL_to_PDF"] },
-  "/html-to-pdf": { item: tool["HTML_to_PDF"] },
-  "/pdf-to-jpg": { item: tool["PDF_to_JPG"] },
-  "/pdf-to-word": { item: tool["PDF_to_WORD"] },
-  "/pdf-to-excel": { item: tool["PDF_to_EXCEL"] },
-  "/pdf-to-pdf-a": { item: tool["PDF_to_PDF_A"] },
-  "/web-to-pdf": { item: tool["Web_to_PDF"] },
-  "/pdf-to-text": { item: tool["PDF_to_Text"] },
-  "/pdf-to-html": { item: tool["PDF_to_HTML"] },
-  "/pdf-to-markdown": { item: tool["PDF_to_Markdown"] },
 };

@@ -13,6 +13,7 @@ export interface ToolState {
   rerender: boolean;
   showDownloadBtn: boolean;
   showOptions: boolean;
+  nav_height: number
 }
 
 const initialState: ToolState = {
@@ -27,7 +28,8 @@ const initialState: ToolState = {
   focus: false,
   rerender: false,
   showDownloadBtn: false,
-  showOptions: false
+  showOptions: false,
+  nav_height: 0
 };
 
 const toolSlice = createSlice({
@@ -76,6 +78,9 @@ const toolSlice = createSlice({
     },
     setShowOptions(state: ToolState, action: PayloadAction<boolean>) {
       state.showOptions = action.payload;
+    },
+    setNavHeight(state: ToolState, action: PayloadAction<number>) {
+      state.nav_height = action.payload;
     }
   },
 });
@@ -93,7 +98,8 @@ export const {
   setFocus,
   setRerender,
   setShowDownloadBtn,
-  setShowOptions
+  setShowOptions,
+  setNavHeight
 } = toolSlice.actions;
 
 export default toolSlice.reducer;
