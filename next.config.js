@@ -1,10 +1,12 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, "node_modules")],
   },
+  // assetPrefix: isProd ? "/tool-pdf" : "",
   output: "standalone",
   webpack: (config, { isServer }) => {
     // Only run this configuration on the client side

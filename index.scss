@@ -32,6 +32,7 @@
 
 // Helpers
 @include helpers;
+
 %debug {
   outline: 1px solid;
 }
@@ -104,6 +105,18 @@ a.dropdown-item {
   unicode-bidi: isolate;
 }
 
+.html {
+  color: rgb(228, 77, 38);
+}
+
+.web {
+  color: #0984e3;
+}
+
+.text {
+  color: lighten(#2e86de, 5%);
+}
+
 #basic-nav-dropdown {
   padding-left: 1.5rem !important;
 }
@@ -125,6 +138,7 @@ a.dropdown-item {
 }
 
 .dropdown-item {
+
   &.active,
   &:active {
     background-color: initial !important;
@@ -139,18 +153,22 @@ a.dropdown-item {
 // error element styles
 .error-element {
   .hide-on-rtl {
+
     [dir="rtl"] &,
     [lang="ar"] & {
       display: none;
     }
   }
+
   .hide-on-rtl {
+
     [dir="ltr"] &,
     :not([lang="ar"]) & {
       display: none;
     }
   }
 }
+
 @import "./scss/toolspage";
 @import "./scss/editpage";
 @import "./scss/display-file";
@@ -161,10 +179,12 @@ footer {
     @include xs {
       margin-bottom: 1em;
       justify-content: space-between;
+
       .copyright-text,
       .lang-dropdown {
         flex: 0 1 49%;
       }
+
       .copyright-text {
         :not(:lang(ar)) & {
           text-align: right;
@@ -172,6 +192,7 @@ footer {
       }
     }
   }
+
   .terms-row {
     @include xs {
       justify-content: space-between !important;
