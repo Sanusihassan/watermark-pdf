@@ -41,6 +41,7 @@ const MyDocument = ({ lang }: { lang: string }) => {
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         />
+        <meta name="google-adsense-account" content="ca-pub-7391414384206267" />
       </Head>
       <body>
         <Main />
