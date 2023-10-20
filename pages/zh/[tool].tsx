@@ -1,9 +1,8 @@
 import Head from "next/head";
-import NavBar from "../../components/NavBar";
+import NavBar from "@/components/NavBar/NavBar";
 import Tool from "../../components/Tool";
 import {
   edit_page,
-  nav_content,
   tool,
   tools,
   downloadFile,
@@ -38,7 +37,6 @@ export async function getStaticProps({
 }
 
 export default ({ item, lang }: { item: data_type; lang: string }) => {
-
   return (
     <>
       <Head>
@@ -46,7 +44,7 @@ export default ({ item, lang }: { item: data_type; lang: string }) => {
         <meta name="description" content={item.description} />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <NavBar nav_content={nav_content} lang={lang} />
+      <NavBar lang={lang} />
       <Tool
         tools={tools}
         data={item}
@@ -61,7 +59,6 @@ export default ({ item, lang }: { item: data_type; lang: string }) => {
   );
 };
 
-// export default ToolPage;
 export const routes = {
   "/merge-pdf": { item: tool["Merge_PDF"] },
 };

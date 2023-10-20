@@ -26,7 +26,6 @@ export const ActionDiv = ({
   errors,
   fileName,
 }: ActionProps) => {
-  const state = useSelector((state: { tool: ToolState }) => state.tool);
   // the files:
   const { files, setFiles } = useFileStore.getState();
   const dispatch = useDispatch();

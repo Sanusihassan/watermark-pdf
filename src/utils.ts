@@ -6,7 +6,7 @@ import type { errors as _ } from "../content";
 import { setErrorCode, setErrorMessage, ToolState } from "./store";
 import { getDocument } from "pdfjs-dist";
 import { PDFDocumentProxy, PageViewport, RenderTask } from "pdfjs-dist";
-const pdfjsWorker = await import('pdfjs-dist/build/pdf.worker.entry');
+const pdfjsWorker = await import("pdfjs-dist/build/pdf.worker.entry");
 import { GlobalWorkerOptions } from "pdfjs-dist";
 GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -89,8 +89,9 @@ export const getFileDetailsTooltipContent = async (
         const pdf = await getDocument(url).promise;
 
         const pageCount = pdf.numPages || 0;
-        tooltipContent += ` - ${lang === "ar" && pageCount === 1 ? "" : pageCount + " "
-          }${pageCount > 1 ? pages : page}`;
+        tooltipContent += ` - ${
+          lang === "ar" && pageCount === 1 ? "" : pageCount + " "
+        }${pageCount > 1 ? pages : page}`;
         URL.revokeObjectURL(url);
         if (!file.size) {
           emptyPDFHandler(dispatch, errors);
@@ -181,7 +182,11 @@ export const validateFiles = (
   extension: string,
   errors: _,
   dispatch: Dispatch<AnyAction>,
-  state: ToolState
+  state: {
+    path: string;
+    click: boolean;
+    focus: boolean;
+  }
 ) => {
   const files = Array.from(_files); // convert FileList to File[] array
 
@@ -239,7 +244,7 @@ export const validateFiles = (
     ) {
       const errorMessage =
         errors.NOT_SUPPORTED_TYPE.types[
-        extension as keyof typeof errors.NOT_SUPPORTED_TYPE.types
+          extension as keyof typeof errors.NOT_SUPPORTED_TYPE.types
         ] || errors.NOT_SUPPORTED_TYPE.message;
       dispatch(setErrorMessage(errorMessage));
       return false;

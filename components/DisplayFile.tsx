@@ -38,8 +38,17 @@ const DisplayFile = ({
   const [showSpinner, setShowSpinner] = useState(true);
   const [toolTipSizes, setToolTipSizes] = useState<string[]>([]);
   // actual files
-  const { files, setFiles, imageUrls, setImageUrls } = useFileStore.getState();
-  const state = useSelector((state: { tool: ToolState }) => state.tool);
+  const { files, setImageUrls } = useFileStore.getState();
+  // state variables:
+  const statePath = useSelector(
+    (state: { tool: ToolState }) => state.tool.path
+  );
+  const stateFocus = useSelector(
+    (state: { tool: ToolState }) => state.tool.focus
+  );
+  const stateClick = useSelector(
+    (state: { tool: ToolState }) => state.tool.click
+  );
   const dispatch = useDispatch();
   // router
   const router = useRouter();
@@ -47,10 +56,14 @@ const DisplayFile = ({
 
   useEffect(() => {
     // set the path if it's not already set
-    if (state.path == "" || state.path !== path) {
+    if (statePath == "" || statePath !== path) {
       dispatch(setPath(path));
     }
-    const isValid = validateFiles(files, extension, errors, dispatch, state);
+    const isValid = validateFiles(files, extension, errors, dispatch, {
+      path: statePath,
+      focus: stateFocus,
+      click: stateClick,
+    });
     if (isValid) {
       dispatch(resetErrorMessage());
     }
@@ -66,65 +79,65 @@ const DisplayFile = ({
     //   setToolTipSizes(sizes);
     // });
 
-    const processFiles = async () => {
-      try {
-        setShowSpinner(true);
+    // const processFiles = async () => {
+    //   try {
+    //     setShowSpinner(true);
 
-        if (extension && extension === ".pdf") {
-          const newImageUrls: { file: File; imageUrl: string }[] = [];
-          const pdfPromises = files.map(async (file: File) => {
-            const imageUrl = await getFirstPageAsImage(file, dispatch, errors);
-            newImageUrls.push({ file, imageUrl });
-          });
+    //     if (extension && extension === ".pdf") {
+    //       const newImageUrls: { file: File; imageUrl: string }[] = [];
+    //       const pdfPromises = files.map(async (file: File) => {
+    //         const imageUrl = await getFirstPageAsImage(file, dispatch, errors);
+    //         newImageUrls.push({ file, imageUrl });
+    //       });
 
-          await Promise.all(pdfPromises);
-          if (isSubscribed) {
-            setImageUrls([...newImageUrls]);
-          }
-        } else if (extension && extension !== ".jpg") {
-          const newImageUrls: { file: File; imageUrl: string }[] = [];
-          files.forEach((file: File) => {
-            let imageUrl = !file.size
-              ? "/images/corrupted.png"
-              : getPlaceHoderImageUrl(extension);
-            newImageUrls.push({ file, imageUrl });
-          });
+    //       await Promise.all(pdfPromises);
+    //       if (isSubscribed) {
+    //         setImageUrls([...newImageUrls]);
+    //       }
+    //     } else if (extension && extension !== ".jpg") {
+    //       const newImageUrls: { file: File; imageUrl: string }[] = [];
+    //       files.forEach((file: File) => {
+    //         let imageUrl = !file.size
+    //           ? "/images/corrupted.png"
+    //           : getPlaceHoderImageUrl(extension);
+    //         newImageUrls.push({ file, imageUrl });
+    //       });
 
-          if (isSubscribed) {
-            setImageUrls([...newImageUrls]);
-          }
-        } else if (extension && extension === ".jpg") {
-          const newImageUrls: { file: File; imageUrl: string }[] = [];
-          files.forEach((file: File) => {
-            const reader = new FileReader();
-            reader.onload = function (event: ProgressEvent<FileReader>) {
-              const imageUrl = (event.target as FileReader).result as string;
-              newImageUrls.push({ file, imageUrl });
-              if (isSubscribed) {
-                setImageUrls([...newImageUrls]);
-              }
-            };
-            reader.readAsDataURL(file);
-          });
-        }
-      } catch (error) {
-        console.error("Error processing files:", error);
-      } finally {
-        setShowSpinner(false);
-      }
-    };
+    //       if (isSubscribed) {
+    //         setImageUrls([...newImageUrls]);
+    //       }
+    //     } else if (extension && extension === ".jpg") {
+    //       const newImageUrls: { file: File; imageUrl: string }[] = [];
+    //       files.forEach((file: File) => {
+    //         const reader = new FileReader();
+    //         reader.onload = function (event: ProgressEvent<FileReader>) {
+    //           const imageUrl = (event.target as FileReader).result as string;
+    //           newImageUrls.push({ file, imageUrl });
+    //           if (isSubscribed) {
+    //             setImageUrls([...newImageUrls]);
+    //           }
+    //         };
+    //         reader.readAsDataURL(file);
+    //       });
+    //     }
+    //   } catch (error) {
+    //     console.error("Error processing files:", error);
+    //   } finally {
+    //     setShowSpinner(false);
+    //   }
+    // };
 
     // processFiles();
 
     return () => {
       isSubscribed = false;
     };
-  }, [extension, state.rerender]);
-  const handleDragEnd = (result: any) => {
-    if (!result.destination) {
-      return;
-    }
-  };
+  }, [extension]);
+  // const handleDragEnd = (result: any) => {
+  //   if (!result.destination) {
+  //     return;
+  //   }
+  // };
 
   return (
     <>

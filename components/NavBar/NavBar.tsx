@@ -1,40 +1,30 @@
 import { Navbar, Nav } from "react-bootstrap";
 
 import Link from "next/link";
-
-import type { nav_content } from "../content";
 import { useRouter } from "next/router";
-import ConvertPDFDropdown from "./NavBar/ConvertDropDown";
-import LanguageDropdown from "./NavBar/LanguageDropDown";
+import ConvertPDFDropdown from "./ConvertDropDown";
+import LanguageDropdown from "./LanguageDropDown";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useFileStore } from "../../src/file-store";
 
-import { useFileStore } from "../src/file-store";
 import {
   showTool,
   ToolState,
   resetErrorMessage,
   setPath,
   setShowDownloadBtn,
-  setNavHeight,
-} from "../src/store";
-import { useEffect, useRef } from "react";
+} from "../../src/store";
+import { getNavContent } from "./getNavContent";
 
-/**
- * this code works fine for the all pages but the home page where there are no sub routes but the /lang route
- * and it's setting the path variable to undefined
- */
 
-const NavBar = ({
-  nav_content,
-  lang,
-}: {
-  nav_content: nav_content;
-  lang: string;
-}) => {
-  const state = useSelector((state: { tool: ToolState }) => state.tool);
+
+const NavBar = ({ lang }: { lang: string }) => {
+  const navContent = getNavContent(lang);
   const dispatch = useDispatch();
-
+  const statePath = useSelector(
+    (state: { tool: ToolState }) => state.tool.path
+  );
   const router = useRouter();
   let path = router.asPath.replace(/^\/[a-z]{2}\//, "").replace(/^\//, "");
   const { files, setFiles } = useFileStore.getState();
@@ -43,8 +33,8 @@ const NavBar = ({
       dispatch(showTool());
     }
     if (
-      !state.path.startsWith("pdf-") ||
-      !["merge-pdf", "compress-pdf"].includes(state.path)
+      !statePath.startsWith("pdf-") ||
+      !["merge-pdf", "compress-pdf"].includes(statePath)
     ) {
       setFiles([]);
     } else {
@@ -58,21 +48,13 @@ const NavBar = ({
     dispatch(resetErrorMessage());
   }
   let langPath = lang.length > 0 ? `/${lang}/` : "/";
-  // navRef
-  const navRef = useRef(null)
-  useEffect(() => {
-    if (navRef.current) {
-      dispatch(setNavHeight((navRef.current as HTMLElement)?.clientHeight));
-    }
-  }, [])
   return (
     <Navbar
       bg="light"
       expand="lg"
       className={`${path !== "markdown-to-pdf" ? "shadow" : ""}`}
-      ref={navRef}
     >
-      <Link href={`/${lang}`} legacyBehavior>
+      <Link href={`/${lang}`}>
         <a
           onClick={(e) => {
             handleClick();
@@ -103,7 +85,7 @@ const NavBar = ({
               fontWeight: "500",
             }}
           >
-            {nav_content.brand}
+            {navContent.brand}
           </span>
         </a>
       </Link>
@@ -121,12 +103,12 @@ const NavBar = ({
             }}
             className="dropdown-item"
           >
-            <bdi>{nav_content.merge_pdf}</bdi>
+            <bdi>{navContent.merge_pdf}</bdi>
           </a>
           {/* </Link> */}
           {/* <Link className="dropdown-item" href={`${langPath}split-pdf`}>
             <a onClick={handleClick} className="dropdown-item">
-              <bdi>{nav_content.split_pdf}</bdi>
+              <bdi>{navContent.split_pdf}</bdi>
             </a>
           </Link> */}
           {/* <Link className="dropdown-item"
@@ -139,7 +121,7 @@ const NavBar = ({
             }}
             className="dropdown-item"
           >
-            <bdi>{nav_content.read_edit_pdf}</bdi>
+            <bdi>{navContent.read_edit_pdf}</bdi>
           </a>
           <a
             href={`https://www.pdfequips.com${langPath}compress-pdf`}
@@ -149,13 +131,13 @@ const NavBar = ({
             }}
             className="dropdown-item"
           >
-            <bdi>{nav_content.compress_pdf}</bdi>
+            <bdi>{navContent.compress_pdf}</bdi>
           </a>
           {/* </Link> */}
           <ConvertPDFDropdown
             handleClick={handleClick}
             langPath={langPath}
-            nav_content={nav_content}
+            nav_content={navContent}
           />
           <LanguageDropdown />
         </Nav>

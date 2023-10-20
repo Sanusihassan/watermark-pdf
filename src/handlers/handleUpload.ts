@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Dispatch, RefObject } from "react";
-import type { ToolData, errorType } from "../../components/Tool";
 import { downloadConvertedFile } from "../downloadFile";
 import type { errors as _ } from "../../content";
 import { AnyAction } from "@reduxjs/toolkit";
@@ -18,7 +17,10 @@ export const handleUpload = async (
   e: React.FormEvent<HTMLFormElement>,
   downloadBtn: RefObject<HTMLAnchorElement>,
   dispatch: Dispatch<AnyAction>,
-  state: ToolState,
+  state: {
+    path: string;
+    errorMessage: string;
+  },
   files: File[],
   errors: _,
   filesLengthOnSubmit: number,
@@ -47,10 +49,10 @@ export const handleUpload = async (
   } else {
     url = `/api/${state.path}`;
   }
-  if (state?.errorMessage) {
+  if (state.errorMessage) {
     return;
   }
-  formData.append("compress_amount", String(state?.compressPdf));
+  // formData.append("compress_amount", String(state.compressPdf));
   const originalFileName = files[0]?.name?.split(".").slice(0, -1).join(".");
 
   const mimeTypeLookupTable: {

@@ -1,4 +1,4 @@
-import { applyMiddleware, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface ToolState {
   showTool: boolean;
@@ -10,10 +10,9 @@ export interface ToolState {
   path: string;
   click: boolean;
   focus: boolean;
-  rerender: boolean;
   showDownloadBtn: boolean;
   showOptions: boolean;
-  nav_height: number
+  nav_height: number;
 }
 
 const initialState: ToolState = {
@@ -26,10 +25,9 @@ const initialState: ToolState = {
   path: "",
   click: false,
   focus: false,
-  rerender: false,
   showDownloadBtn: false,
   showOptions: false,
-  nav_height: 0
+  nav_height: 0,
 };
 
 const toolSlice = createSlice({
@@ -47,9 +45,6 @@ const toolSlice = createSlice({
     },
     setShowDownloadBtn(state: ToolState, action: PayloadAction<boolean>) {
       state.showDownloadBtn = action.payload;
-    },
-    setRerender(state: ToolState, action: PayloadAction<boolean>) {
-      state.rerender = action.payload;
     },
     setPath(state: ToolState, action: PayloadAction<string>) {
       state.path = action.payload;
@@ -81,7 +76,7 @@ const toolSlice = createSlice({
     },
     setNavHeight(state: ToolState, action: PayloadAction<number>) {
       state.nav_height = action.payload;
-    }
+    },
   },
 });
 
@@ -96,10 +91,9 @@ export const {
   setPath,
   setClick,
   setFocus,
-  setRerender,
   setShowDownloadBtn,
   setShowOptions,
-  setNavHeight
+  setNavHeight,
 } = toolSlice.actions;
 
 export default toolSlice.reducer;
