@@ -1,5 +1,4 @@
 import type {
-  nav_content as nav_content_type,
   tool as _tool,
   web2pdftool as _web2pdftool,
   tools as _tools,
@@ -10,7 +9,7 @@ import type {
   landing_page as _landing_page,
 } from "../../content";
 
-export const nav_content: nav_content_type = {
+export const nav_content = {
   // इसे अनदेखा करें
   brand: "Equips",
   merge_pdf: "पीडीएफ विलय करें",
