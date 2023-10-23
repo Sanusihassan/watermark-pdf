@@ -12,6 +12,13 @@ export function SubmitBtn({
 }): JSX.Element {
   const dispatch = useDispatch();
   const { submitBtn } = useFileStore.getState();
+  // state variables:
+  const errorMessage = useSelector(
+    (state: { tool: ToolState }) => state.tool.errorMessage
+  );
+  const isSubmitted = useSelector(
+    (state: { tool: ToolState }) => state.tool.isSubmitted
+  );
   return (
     <button
       className={`submit-btn btn btn-lg text-white position-relative overflow-hidden ${k} grid-footer`}
@@ -22,7 +29,7 @@ export function SubmitBtn({
           submitBtn?.current?.click();
         }
       }}
-      disabled={state!.errorMessage.length > 0}
+      disabled={errorMessage.length > 0}
     >
       <bdi>
         {
@@ -31,7 +38,7 @@ export function SubmitBtn({
           ]
         }
       </bdi>{" "}
-      {state?.isSubmitted ? (
+      {isSubmitted ? (
         <Spinner as="span" animation="grow" role="status" aria-hidden="true" />
       ) : null}
     </button>
