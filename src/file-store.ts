@@ -1,11 +1,5 @@
-/**
- * i'm still getting the errors, the below is my file store this might probably help
- Expected 1 arguments, but got 2.ts(2554)
-Parameter 'state' implicitly has an 'any' type.ts(7006)
-(parameter) state: any
- */
 import { Dispatch, RefObject, SetStateAction } from "react";
-import { createStore } from "zustand";
+import { create } from "zustand";
 
 export interface FileStore {
   files: File[];
@@ -32,7 +26,7 @@ export interface FileStore {
   setFilesLengthOnSubmit(value: number): void;
 }
 
-export const useFileStore = createStore<FileStore>((set) => ({
+export const useFileStore = create<FileStore>((set) => ({
   files: [],
   fileInput: null,
   downloadBtn: null,
@@ -66,6 +60,6 @@ export const useFileStore = createStore<FileStore>((set) => ({
     }));
   },
   setFilesLengthOnSubmit(value: number) {
-    set({filesLengthOnSubmit: value});
-  }
+    set({ filesLengthOnSubmit: value });
+  },
 }));

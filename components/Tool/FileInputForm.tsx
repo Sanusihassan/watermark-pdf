@@ -54,7 +54,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     setSubmitBtn,
     filesLengthOnSubmit,
     setFilesLengthOnSubmit,
-  } = useFileStore.getState();
+  } = useFileStore;
   // refs
   const fileInput = useRef<HTMLInputElement>(null);
   const submitBtn = useRef<HTMLButtonElement>(null);

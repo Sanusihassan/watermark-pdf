@@ -17,8 +17,6 @@ import {
 } from "../../src/store";
 import { getNavContent } from "./getNavContent";
 
-
-
 const NavBar = ({ lang }: { lang: string }) => {
   const navContent = getNavContent(lang);
   const dispatch = useDispatch();
@@ -27,7 +25,7 @@ const NavBar = ({ lang }: { lang: string }) => {
   );
   const router = useRouter();
   let path = router.asPath.replace(/^\/[a-z]{2}\//, "").replace(/^\//, "");
-  const { files, setFiles } = useFileStore.getState();
+  const { files, setFiles } = useFileStore;
   function handleClick(): void {
     if (files.length > 0) {
       dispatch(showTool());

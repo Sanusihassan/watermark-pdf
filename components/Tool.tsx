@@ -52,8 +52,8 @@ const Tool: React.FC<ToolProps> = ({
   page,
   downloadFile,
 }) => {
-   // state variables:
-   const statePath = useSelector(
+  // state variables:
+  const statePath = useSelector(
     (state: { tool: ToolState }) => state.tool.path
   );
   const stateShowTool = useSelector(
@@ -63,7 +63,7 @@ const Tool: React.FC<ToolProps> = ({
     (state: { tool: ToolState }) => state.tool.errorMessage
   );
   // the files:
-  const { setFiles } = useFileStore.getState();
+  const { setFiles } = useFileStore;
   const dispatch = useDispatch();
   // const dispatch = useDispatch();
   const router = useRouter();
