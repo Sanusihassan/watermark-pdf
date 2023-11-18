@@ -73,7 +73,7 @@ const EditPage = ({
   );
   const dispatch = useDispatch();
   // actual files;
-  const { files, setFiles, fileInput, submitBtn } = useFileStore;
+  const { files, setFiles, fileInput, submitBtn } = useFileStore();
   useEffect(() => {
     if (errorCode == "ERR_NO_FILES_SELECTED" && files.length > 0) {
       dispatch(resetErrorMessage());

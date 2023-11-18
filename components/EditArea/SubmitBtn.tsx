@@ -11,7 +11,7 @@ export function SubmitBtn({
   edit_page: edit_page;
 }): JSX.Element {
   const dispatch = useDispatch();
-  const { submitBtn } = useFileStore;
+  const { submitBtn } = useFileStore();
   // state variables:
   const errorMessage = useSelector(
     (state: { tool: ToolState }) => state.tool.errorMessage

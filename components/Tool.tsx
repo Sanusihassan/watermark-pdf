@@ -63,7 +63,7 @@ const Tool: React.FC<ToolProps> = ({
     (state: { tool: ToolState }) => state.tool.errorMessage
   );
   // the files:
-  const { setFiles } = useFileStore;
+  const { setFiles } = useFileStore();
   const dispatch = useDispatch();
   // const dispatch = useDispatch();
   const router = useRouter();

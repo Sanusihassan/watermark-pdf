@@ -38,7 +38,7 @@ const DisplayFile = ({
   const [showSpinner, setShowSpinner] = useState(true);
   const [toolTipSizes, setToolTipSizes] = useState<string[]>([]);
   // actual files
-  const { files, setImageUrls } = useFileStore;
+  const { files, setImageUrls } = useFileStore();
   // state variables:
   const statePath = useSelector(
     (state: { tool: ToolState }) => state.tool.path
