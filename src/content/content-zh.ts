@@ -14,7 +14,7 @@ export const tool: _tool = {
     title: "添加水印",
     description:
       "轻松在您的PDF上应用图像或文本叠加。自定义字体、透明度和位置。",
-    color: "#079992",
+    color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
   },

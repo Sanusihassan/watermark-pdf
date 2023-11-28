@@ -13,7 +13,7 @@ export const tool: _tool = {
     title: "إضافة علامة مائية",
     description:
       "قم بتطبيق صورة أو نص فوق ملف PDF بسهولة. قم بتخصيص الخط والشفافية والموضع.",
-    color: "#079992",
+    color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
   },

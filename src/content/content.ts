@@ -3,7 +3,7 @@ export const tool = {
     title: "Add Watermark",
     description:
       "Effortlessly apply an image or text overlay onto your PDF. Customize typography, transparency, and placement.",
-    color: "#079992",
+    color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
   },

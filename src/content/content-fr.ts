@@ -14,7 +14,7 @@ export const tool: _tool = {
     title: "Ajouter un filigrane",
     description:
       "Appliquez facilement une image ou un texte superposé à votre PDF. Personnalisez la typographie, la transparence et la position.",
-    color: "#079992",
+    color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
   },

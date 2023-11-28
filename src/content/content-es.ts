@@ -14,7 +14,7 @@ export const tool: _tool = {
     title: "Agregar marca de agua",
     description:
       "Aplica fácilmente una imagen o texto superpuesto en tu PDF. Personaliza la tipografía, transparencia y posición.",
-    color: "#079992",
+    color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
   },
