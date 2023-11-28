@@ -10,25 +10,26 @@ import type {
 } from "../../content";
 
 export const tool: _tool = {
-  Merge_PDF: {
-    title: "Combinar PDF",
-    description: "Combina varios archivos PDF en un solo documento",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "Agregar marca de agua",
+    description:
+      "Aplica fácilmente una imagen o texto superpuesto en tu PDF. Personaliza la tipografía, transparencia y posición.",
+    color: "#e55039",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    merge_pdf: "Opciones para fusionar PDF",
+    add_watermark: "Opciones de marca de agua",
   },
   loader_text: "Por favor espera...",
-  add_more_button: "Agrega más archivos",
+  add_more_button: "Agregar más archivos",
   action_buttons: {
-    merge_pdf: "Combinar PDF",
+    add_watermark: "Agregar marca de agua",
   },
-  pages: "paginas",
+  pages: "páginas",
   page: "página",
 };
 

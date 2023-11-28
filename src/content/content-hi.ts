@@ -36,12 +36,13 @@ export const nav_content = {
   pdf_to_markdown: "PDF से मार्कडाउन तक",
 };
 export const tool: _tool = {
-  Merge_PDF: {
-    title: "पीडीएफ विलय",
-    description: "एक दस्तावेज में कई पीडीएफ फ़ाइलों को जोड़ें",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "वॉटरमार्क जोड़ें",
+    description:
+      "अपने पीडीएफ पर छवि या पाठ को आसानी से लागू करें। टाइपोग्राफी, पारदर्शिता और स्थान को अनुकूलित करें।",
+    color: "#e55039",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
 
@@ -65,14 +66,14 @@ export const downloadFile: _downloadFile = {
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    merge_pdf: "PDF फ्यूज़न विकल्प",
+    add_watermark: "वॉटरमार्क विकल्प",
   },
   loader_text: "कृपया प्रतीक्षा करें...",
-  add_more_button: "अधिक फ़ाइलें जोड़ें",
+  add_more_button: "और फ़ाइलें जोड़ें",
   action_buttons: {
-    merge_pdf: "पीडीएफ विलय करें",
+    add_watermark: "वॉटरमार्क जोड़ें",
   },
-  pages: "पृष्ठों",
+  pages: "पृष्ठ",
   page: "पृष्ठ",
 };
 

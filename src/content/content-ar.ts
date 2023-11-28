@@ -9,12 +9,13 @@ import type {
 } from "../../content";
 
 export const tool: _tool = {
-  Merge_PDF: {
-    title: "دمج PDF",
-    description: "دمج ملفات PDF متعددة في مستند واحد",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "إضافة علامة مائية",
+    description:
+      "قم بتطبيق صورة أو نص فوق ملف PDF بسهولة. قم بتخصيص الخط والشفافية والموضع.",
+    color: "#e55039",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
 
@@ -39,15 +40,15 @@ export const downloadFile: _downloadFile = {
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    merge_pdf: "خيارات دمج ملف PDF",
+    add_watermark: "خيارات العلامة المائية",
   },
   loader_text: "يرجى الانتظار...",
-  add_more_button: "إضافة المزيد من الملفات",
+  add_more_button: "إضافة ملفات أخرى",
   action_buttons: {
-    merge_pdf: "دمج PDF",
+    add_watermark: "إضافة علامة مائية",
   },
-  pages: "صفحة",
-  page: "صفحة واحدة",
+  pages: "صفحات",
+  page: "صفحة",
 };
 
 export const errors: _errors = {

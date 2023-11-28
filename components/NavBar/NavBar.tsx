@@ -52,7 +52,7 @@ const NavBar = ({ lang }: { lang: string }) => {
       expand="lg"
       className={`${path !== "markdown-to-pdf" ? "shadow" : ""}`}
     >
-      <Link href={`/${lang}`}>
+      <Link href={`/${lang}`} legacyBehavior>
         <a
           onClick={(e) => {
             handleClick();
