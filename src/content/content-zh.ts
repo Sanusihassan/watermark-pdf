@@ -10,12 +10,13 @@ import type {
 } from "../../content";
 
 export const tool: _tool = {
-  Merge_PDF: {
-    title: "合并PDF",
-    description: "将多个PDF文件合并成一个文档",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "添加水印",
+    description:
+      "轻松在您的PDF上应用图像或文本叠加。自定义字体、透明度和位置。",
+    color: "#079992",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
 
@@ -33,12 +34,12 @@ export const downloadFile: _downloadFile = {
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    merge_pdf: "合并PDF选项",
+    add_watermark: "水印选项",
   },
-  loader_text: "请稍等...",
+  loader_text: "请稍候...",
   add_more_button: "添加更多文件",
   action_buttons: {
-    merge_pdf: "合并PDF",
+    add_watermark: "添加水印",
   },
   pages: "页",
   page: "页",

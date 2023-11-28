@@ -10,12 +10,13 @@ import type {
 } from "../../content";
 
 export const tool: _tool = {
-  Merge_PDF: {
-    title: "Fusionner des PDF",
-    description: "Combinez plusieurs fichiers PDF en un seul document",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "Ajouter un filigrane",
+    description:
+      "Appliquez facilement une image ou un texte superposé à votre PDF. Personnalisez la typographie, la transparence et la position.",
+    color: "#079992",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
 
@@ -46,12 +47,12 @@ export const downloadFile: _downloadFile = {
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    merge_pdf: "Options de fusion de PDF",
+    add_watermark: "Options de filigrane",
   },
   loader_text: "Veuillez patienter...",
   add_more_button: "Ajouter plus de fichiers",
   action_buttons: {
-    merge_pdf: "Fusionner PDF",
+    add_watermark: "Ajouter un filigrane",
   },
   pages: "pages",
   page: "page",

@@ -1,22 +1,41 @@
 export const tool = {
-  Merge_PDF: {
-    title: "Merge PDF",
-    description: "Combine multiple PDF files into one document",
-    color: "var(--red)",
+  Add_Watermark: {
+    title: "Add Watermark",
+    description:
+      "Effortlessly apply an image or text overlay onto your PDF. Customize typography, transparency, and placement.",
+    color: "#079992",
     type: ".pdf",
-    to: "/merge-pdf",
+    to: "/add-watermark",
   },
 };
-
+/**
+ * please generate 5 objects with the same name please it's important that all of the objects you generate are of the same name "edit_page" alright?
+ * for all of ar, es, fr, hi, zh respectively.
+ * then all of them should be of the same type/interface i.e _edit_page.
+ * meaning that each created object should followed by :_edit_page as a type because i'm using TYPESCRIPT!.
+ * and i already have the _edit_page interface and it looks like this: 
+ *  edit_page: {
+    edit_page_titles: {
+        add_watermark: string;
+    };
+    loader_text: string;
+    add_more_button: string;
+    action_buttons: {
+        add_watermark: string;
+    };
+    pages: string;
+    page: string;
+}
+the only thing you need to modify for each object you create is the string values just translate them for all of ar, es, fr, hi, zh respectively.
+ */
 export const edit_page = {
   edit_page_titles: {
-    merge_pdf: "Merge PDF options",
+    add_watermark: "Watermark options",
   },
   loader_text: "please wait...",
   add_more_button: "Add more files",
-  // translate the values of this object to french.
   action_buttons: {
-    merge_pdf: "Merge PDF",
+    add_watermark: "Add Watermark",
   },
   pages: "pages",
   page: "page",

@@ -61,5 +61,5 @@ export default ({ item, lang }: { item: data_type; lang: string }) => {
 
 // export default ToolPage;
 export const routes = {
-  "/merge-pdf": { item: tool["Merge_PDF"] },
+  "/add-watermark": { item: tool["Add_Watermark"] },
 };
