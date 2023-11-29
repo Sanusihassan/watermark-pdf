@@ -1,0 +1,18 @@
+.add-watermark-options {
+    outline: 1px solid;
+    height: 100%;
+    .btn-row {
+        // @include extend("justify-content-between");
+        .button {
+            flex: 0 1 50%;
+            @include extend("d-flex flex-column align-items-center");
+            &:not(.active) {
+                opacity: .3
+            }
+            .btn-icon {
+                width: 2em;
+                height: 2em;
+            }
+        }
+    }
+}
