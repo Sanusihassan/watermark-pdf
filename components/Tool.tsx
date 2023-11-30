@@ -105,9 +105,6 @@ const Tool: React.FC<ToolProps> = ({
       <div
         className="tools-page container-fluid position-relative"
         {...(stateShowTool && getRootProps())}
-        onClick={(e) => {
-          e.preventDefault();
-        }}
       >
         {isDragActive && (
           <div className="overlay display-4">{tools.drop_files}</div>

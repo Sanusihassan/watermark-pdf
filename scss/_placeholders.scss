@@ -3,3 +3,10 @@
   background-color: darken(#f8f9fa, 20%);
   border-color: darken(#f8f9fa, 20%);
 }
+
+
+%bullet {
+  @include extend("p-2 rounded-circle");
+  background-color: map-get($color-map, "add-watermark");
+  transition: .3s;
+}
