@@ -11,7 +11,7 @@ export const AddWaterMarkOptions = () => {
     <div className="add-watermark-options">
       <div className="d-flex flex-row btn-row">
         <button
-          className={`button btn btn-lg btn-light p3${
+          className={`button p3${
             type === "text" ? " active" : ""
           }`}
           onClick={() => setType("text")}
@@ -20,7 +20,7 @@ export const AddWaterMarkOptions = () => {
           Place text
         </button>
         <button
-          className={`button btn btn-lg btn-light p3${
+          className={`button p3${
             type === "image" ? " active" : ""
           }`}
           onClick={() => setType("image")}

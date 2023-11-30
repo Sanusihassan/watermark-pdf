@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode, useCallback, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Select, {
@@ -6,7 +7,7 @@ import Select, {
   OptionProps,
   StylesConfig,
 } from "react-select";
-const THEME_COLOR = "#e55039";
+export const THEME_COLOR = "#e55039";
 export const customStyles: StylesConfig<
   { value: string; label: string },
   false
@@ -31,7 +32,7 @@ import { ITrackProps, IThumbProps } from "react-range/lib/types";
 import { useDispatch } from "react-redux";
 import { Checkbox } from "pretty-checkbox-react";
 import { BsLayersHalf } from "react-icons/bs";
-import { BsLayersHalfInverted } from "@/components/icons/BsLayersHalfInverted";
+import AnglePicker from "./AnglePicker";
 
 export const TextOptions = () => {
   const [text, setText] = useState("pdfequips");
@@ -41,6 +42,7 @@ export const TextOptions = () => {
   const [position, setPosition] = useState(1);
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
+  const [layerOption, setLayerOption] = useState<"below" | "over">("over");
   /**
    * i want another similar object i.e with the same schema but for transparency
    * values: "transparency", "75%", "50%", "25%"
@@ -212,8 +214,8 @@ export const TextOptions = () => {
           </Checkbox>
         </div>
       </Row>
-      <Row className="m-0">
-        <div className="d-flex m-0 flex-column col p-0">
+      <Row className="m-0 setting-col opacity-rotation-setting">
+        <div className="d-flex m-0 flex-column col p-0 opacity-column">
           <h6>Opacity</h6>
           <Range
             step={0.1}
@@ -259,19 +261,30 @@ export const TextOptions = () => {
             )}
           />
         </div>
-        <div className="d-flex m-0 flex-column col p-0">
+        <div className="angle-column d-flex m-0 flex-column col p-0">
           <h6>Rotation</h6>
+          <AnglePicker />
         </div>
       </Row>
       <h6>Layer</h6>
-      <Row className="m-0">
-        <div className="d-flex m-0 flex-column col p-0">
+      <Row className="m-0 layer-options">
+        <div
+          className={`d-flex m-0 flex-column col p-0 option${
+            layerOption === "over" ? " active" : ""
+          }`}
+          onClick={() => setLayerOption("over")}
+        >
           Over the PDF content
-          <BsLayersHalfInverted className="icon" />
+          <BsLayersHalf className="inverted btn-icon" />
         </div>
-        <div className="d-flex m-0 flex-column col p-0">
+        <div
+          className={`d-flex m-0 flex-column col p-0 option${
+            layerOption === "below" ? " active" : ""
+          }`}
+          onClick={() => setLayerOption("below")}
+        >
           Below the PDF content
-          <BsLayersHalf size={25} />
+          <BsLayersHalf className="btn-icon" />
         </div>
       </Row>
     </div>

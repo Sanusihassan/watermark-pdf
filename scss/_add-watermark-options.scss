@@ -1,73 +1,127 @@
 .add-watermark-options {
-    height: 100%;
-    .btn-row {
-        // @include extend("justify-content-between");
-        .button {
-            flex: 0 1 50%;
-            @include extend("d-flex flex-column align-items-center");
-            &:not(.active) {
-                opacity: .3
-            }
-            .btn-icon {
-                width: 2em;
-                height: 2em;
-            }
+  height: 100%;
+  %switch-btn {
+    flex: 0 1 50%;
+    @include extend(
+      "d-flex flex-column align-items-center btn btn-lg btn-light"
+    );
+    &:not(.active) {
+      opacity: 0.3;
+    }
+    .btn-icon {
+      width: 2em;
+      height: 2em;
+    }
+  }
+  .btn-row {
+    .button {
+      @include extend("switch-btn");
+    }
+  }
+  .text-options {
+    .text-format-row {
+      @include extend("justify-content-between align-items-center p-0");
+    }
+    [class*="setting-col"] {
+      flex: 0 1 30%;
+      &.color-setting-col {
+        .css-1yn2e29-InputColor {
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, 11.5%);
         }
-    }
-    .text-options {
-        .text-format-row {
-            @include extend("justify-content-between align-items-center p-0");
-            [class*=-setting-col] {
-                flex: 0 1 30%;
-                &.color-setting-col {
-                    .css-1yn2e29-InputColor {
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, 11.5%);
-                    }
-                }
-            }
+      }
+      &.opacity-rotation-setting {
+        %pt-5 {
+          padding-top: 5px !important;
         }
-    }
-    .boxes-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(auto-fill 9, 1fr);
-        min-height: 20vh;
-        border: 1px dashed #dcdc;
-        border-bottom: 0;
-        border-right: 0;
-        .box {
-            @include extend("d-flex justify-content-center align-items-center");
-            border-bottom: 1px dashed #dcdc;
-            border-right: 1px dashed #dcdc;
-
-            .inner-box {
-                @extend %bullet;
-                opacity: 0;
-
-                &.display {
-                    opacity: 1;
-                }
-            }
-
-            cursor: pointer;
-
-            &:hover {
-                @include extend("text-decoration-none text-primary");
-            }
+        .opacity-column {
+          @include extend("p-0 align-items-center pt-5");
+          .range-track {
+            margin-top: auto;
+            margin-bottom: auto;
+          }
         }
-    }
-    // checkbox styles
-    .pretty input:checked~.state.p-primary label:after,
-    .pretty.p-toggle .state.p-primary label:after {
-      background-color: map-get($color-map, add-watermark) !important;
-    }
-  
-    .pretty .state label:before,
-    .pretty .state label:after {
-      @include ar-wrapper {
-        left: unset !important;
+        .angle-column {
+          @include extend("p-0 justify-content-evenly align-items-center pt-5");
+        }
       }
     }
+  }
+  .boxes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill 9, 1fr);
+    min-height: 20vh;
+    border: 1px dashed #dcdc;
+    border-bottom: 0;
+    border-right: 0;
+    .box {
+      @include extend("d-flex justify-content-center align-items-center");
+      border-bottom: 1px dashed #dcdc;
+      border-right: 1px dashed #dcdc;
+
+      .inner-box {
+        @extend %bullet;
+        opacity: 0;
+
+        &.display {
+          opacity: 1;
+        }
+      }
+
+      cursor: pointer;
+
+      &:hover {
+        @include extend("text-decoration-none text-primary");
+      }
+    }
+  }
+  .layer-options {
+    .option {
+      @include extend("switch-btn");
+    }
+    .inverted {
+      transform: rotate(-180deg);
+    }
+  }
+  // checkbox styles
+  .pretty input:checked ~ .state.p-primary label:after,
+  .pretty.p-toggle .state.p-primary label:after {
+    background-color: map-get($color-map, add-watermark) !important;
+  }
+
+  .pretty .state label:before,
+  .pretty .state label:after {
+    @include ar-wrapper {
+      left: unset !important;
+    }
+  }
+  // // angle-picker styles
+  // .angle-picker {
+  //   display: flex;
+  //   align-items: center;
+  //   width: 30px;
+  //   height: 30px;
+  // }
+
+  // .angle-rotater {
+  //   width: 30px;
+  //   height: 30px;
+  //   position: relative;
+  //   border-radius: 50%;
+  //   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
+  // }
+
+  // .angle-dot {
+  //   position: absolute;
+  //   width: 8px;
+  //   height: 8px;
+  //   bottom: 3px;
+  //   border-radius: 50%;
+  //   background-color: #58595b;
+  //   margin: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  // }
 }

@@ -22,6 +22,7 @@
     "pdfjs-dist": "^3.8.162",
     "pretty-checkbox-react": "^3.2.0",
     "react": "18.2.0",
+    "react-angle-picker": "^1.0.6",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
