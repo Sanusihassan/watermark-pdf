@@ -22,6 +22,38 @@
     .text-format-row {
       @include extend("justify-content-between align-items-center p-0");
     }
+    %flex-center-y {
+      @include extend("d-flex align-items-center");
+    }
+    %btn-row {
+      display: flex;
+      @include extend("p-0 w-100");
+      align-items: stretch;
+      span {
+        @include extend("col p-1 flex-center-y");
+        align-self: center;
+      }
+
+      .icon-container {
+        @include extend("col-3 flex-center-y justify-content-center");
+        
+        .icon {
+          stroke: map-get($color-map, "add-watermark");
+          // @include extend("w-100 h-100");
+          width: 80%;
+          height: 80%;
+        }
+        // width: 2em;
+        // height: 2em;
+      }
+    }
+    .add-image-btn {
+      outline: none;
+      @include extend("btn btn-light btn-row shadow-sm mt-1");
+      &:active {
+        @include extend("active");
+      }
+    }
     [class*="setting-col"] {
       flex: 0 1 30%;
       &.color-setting-col {
@@ -44,6 +76,14 @@
         }
         .angle-column {
           @include extend("p-0 justify-content-evenly align-items-center pt-5");
+        }
+      }
+      &.from-to-page {
+        .input {
+          &.from {
+            flex: 0 1 57.5%;
+          }
+          flex: 0 1 41%;
         }
       }
     }

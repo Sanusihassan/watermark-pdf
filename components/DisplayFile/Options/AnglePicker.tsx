@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ReactAnglePicker } from "react-angle-picker";
-import { THEME_COLOR } from "./TextOptions";
+import { THEME_COLOR } from "./TextImageOptions";
 const AnglePicker = () => {
   const [angle, setAngle] = React.useState(30);
   return (
