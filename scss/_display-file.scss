@@ -27,6 +27,10 @@
       %right {
         right: 0;
       }
+      %middle {
+        top: 50%;
+        transform: translateY(-50%);
+      }
       %l-r-c {
         &.left {
           @include extend("left");
@@ -47,14 +51,54 @@
           @include extend("l-r-c");
         }
         &.middle {
-          top: 50%;
-          transform: translateY(-50%);
-          @include extend("l-r-c");
+          @include extend("l-r-c middle");
         }
 
         &.bottom {
           bottom: 0;
           @include extend("l-r-c");
+        }
+      }
+      .mosaic {
+        outline: 1px solid;
+        @include extend("h-100 w-100 position-absolute");
+        .bullet-row {
+          height: auto;
+          outline: 1px solid;
+          * {
+            @include extend("position-absolute");
+          }
+          :first-child {
+            left: 0;
+          }
+          :nth-child(2) {
+            left: 50%;
+          }
+          :nth-child(3) {
+            right: 0;
+          }
+          &.top {
+            top: 0;
+          }
+          &.middle {
+            @include extend("middle");
+          }
+          &.bottom {
+            bottom: 0;
+          }
+        }
+        top: 0;
+        left: 0;
+        .left {
+          @include extend("left");
+        }
+
+        .center {
+          @include extend("center");
+        }
+
+        .right {
+          @include extend("right");
         }
       }
     }

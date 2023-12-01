@@ -36,6 +36,9 @@ const FileCard = ({
   const bulletPosition = useSelector(
     (state: { tool: ToolState }) => state.tool.options.position
   );
+  const mosaic = useSelector(
+    (state: { tool: ToolState }) => state.tool.options.mosaic
+  );
   const dispatch = useDispatch();
   let isSubscribed = true;
   useEffect(() => {
@@ -88,7 +91,27 @@ const FileCard = ({
         {imageUrls.map((imageUrl, index) => (
           <div key={index.toString()} className="page">
             <ImageWithLoader imageUrl={imageUrl} loader_text={loader_text} />
-            <div className={`page-number-bullet ${bulletPosition}`}></div>
+            {!mosaic ? (
+              <div className={`page-number-bullet ${bulletPosition}`}></div>
+            ) : (
+              <div className="mosaic">
+                <div className="top bullet-row">
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                </div>
+                <div className="middle bullet-row">
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                </div>
+                <div className="bottom bullet-row">
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                  <div className="page-number-bullet"></div>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
