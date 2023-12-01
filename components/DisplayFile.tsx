@@ -1,23 +1,12 @@
-import { useEffect, useState, RefObject, useContext } from "react";
+import { useEffect, useState } from "react";
 import "react-tooltip/dist/react-tooltip.css";
-
-import {
-  getFileDetailsTooltipContent,
-  getFirstPageAsImage,
-  getPlaceHoderImageUrl,
-  isDraggableExtension,
-} from "../src/utils";
-
 import { useRouter } from "next/router";
-
 import { validateFiles } from "../src/utils";
-
 import type { errors as _, edit_page } from "../content";
-import Files from "./DisplayFile/Files";
-// import { ToolStoreContext } from "../src/ToolStoreContext";
 import { useSelector, useDispatch } from "react-redux";
 import { ToolState, resetErrorMessage, setPath } from "../src/store";
 import { useFileStore } from "../src/file-store";
+import FileCard from "./DisplayFile/FileCard";
 type propTypes = {
   extension: string;
   pages: string;
@@ -140,17 +129,15 @@ const DisplayFile = ({
   // };
 
   return (
-    <>
-      <Files
+    <div className="display-file">
+      <FileCard
+        file={files[0]}
         errors={errors}
-        extension={extension}
-        setToolTipSizes={setToolTipSizes}
-        toolTipSizes={toolTipSizes}
-        loader_text={edit_page.loader_text}
-        showSpinner={showSpinner}
+        loader_text={edit_page["loader_text"]}
         fileDetailProps={[pages, page, lang]}
+        extension={extension}
       />
-    </>
+    </div>
   );
 };
 

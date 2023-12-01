@@ -1,16 +1,64 @@
-/// i want to modify this so that one row should have only 4 elements max
-.display-file {
+%grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(27%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+
   @media (max-width: 600px) {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-  gap: 10px;
-  justify-content: center;
-  min-height: 300px;
-  padding: 10px;
-  align-items: stretch;
+}
+.display-file {
+  .pages {
+    @extend %grid;
+    gap: 10px;
+    justify-content: center;
+    // min-height: 300px;
+    padding: 10px;
+    align-items: stretch;
 
+    .page {
+      @include extend("position-relative");
+      %center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      %left {
+        left: 0;
+      }
+      %right {
+        right: 0;
+      }
+      %l-r-c {
+        &.left {
+          @include extend("left");
+        }
+
+        &.center {
+          @include extend("center");
+        }
+
+        &.right {
+          @include extend("right");
+        }
+      }
+      .page-number-bullet {
+        @include extend("position-absolute rounded-circle bullet");
+        &.top {
+          top: 0;
+          @include extend("l-r-c");
+        }
+        &.middle {
+          top: 50%;
+          transform: translateY(-50%);
+          @include extend("l-r-c");
+        }
+
+        &.bottom {
+          bottom: 0;
+          @include extend("l-r-c");
+        }
+      }
+    }
+  }
   .drag-element {
     .image-tooltip,
     .item-tooltip {

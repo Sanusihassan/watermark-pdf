@@ -34,10 +34,7 @@ const FileCard = ({
     (state: { tool: ToolState }) => state.tool.pageCount
   );
   const bulletPosition = useSelector(
-    (state: { tool: ToolState }) => state.tool.options.bulletPosition
-  );
-  const margin = useSelector(
-    (state: { tool: ToolState }) => state.tool.options.margin
+    (state: { tool: ToolState }) => state.tool.options.position
   );
   const dispatch = useDispatch();
   let isSubscribed = true;
@@ -51,7 +48,7 @@ const FileCard = ({
       );
       let _pageCount = await calculatePages(file);
       setToolTipSize(size);
-      dispatch(setPageCount(_pageCount))
+      dispatch(setPageCount(_pageCount));
     })();
     const processFile = async () => {
       try {
@@ -59,11 +56,10 @@ const FileCard = ({
           if (isSubscribed) {
             for (let i = 1; i <= pageCount; i += 1) {
               let url = await getNthPageAsImage(file, dispatch, errors, i);
-              setImageUrls(prevUrls => [...prevUrls, url]);
+              setImageUrls((prevUrls) => [...prevUrls, url]);
             }
           }
         } else if (extension && extension !== ".jpg") {
-
           if (isSubscribed) {
             setImageUrls(
               !file.size
@@ -83,19 +79,16 @@ const FileCard = ({
   }, [extension, file, pageCount]);
   return (
     <>
-      {imageUrls.length == 0 ?
+      {imageUrls.length == 0 ? (
         <div className="initial-loader">
           <Loader loader_text={loader_text} animate={false} />
         </div>
-        : null}
-      <div className="pages">{
-        imageUrls.map((imageUrl, index) => (
-          <div
-            key={index.toString()}
-            className="page"
-          >
+      ) : null}
+      <div className="pages">
+        {imageUrls.map((imageUrl, index) => (
+          <div key={index.toString()} className="page">
             <ImageWithLoader imageUrl={imageUrl} loader_text={loader_text} />
-            <div className={`page-number-bullet ${margin} ${bulletPosition}`}></div>
+            <div className={`page-number-bullet ${bulletPosition}`}></div>
           </div>
         ))}
       </div>

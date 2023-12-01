@@ -12,10 +12,11 @@ import { IoImageOutline } from "react-icons/io5";
 import { TextFormat } from "./TextFormat";
 import { ToolState, setOptions } from "@/src/store";
 import { PositionGrid } from "./PositionGrid";
+import { useFileStore } from "@/src/file-store";
 
 export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
   const dispatch = useDispatch();
-  // const [checked, setChecked] = useState(false);
+  const { setImageFile } = useFileStore();
   const [layerOption, setLayerOption] = useState<"below" | "over">("over");
   const options = useSelector(
     (state: { tool: ToolState }) => state.tool.options
@@ -31,6 +32,16 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
     <div className="container text-options w-100 pt-2">
       <TextFormat layout={layout} />
       <button className={`add-image-btn${layout == "text" ? " d-none" : ""}`}>
+        <input
+          type="file"
+          className="image-input"
+          accept="image/*"
+          onChange={(e) => {
+            if (e.target.files) {
+              setImageFile(e.target.files[0]);
+            }
+          }}
+        />
         <div className="icon-container">
           <IoImageOutline className="icon" />
         </div>
@@ -132,7 +143,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
             className="form-control"
             min={0}
             max={pageCount}
-            value={options.toPage}
+            value={pageCount}
             onChange={(e) =>
               dispatch(setOptions({ toPage: e.target.valueAsNumber }))
             }

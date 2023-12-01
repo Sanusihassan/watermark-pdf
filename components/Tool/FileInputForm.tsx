@@ -11,7 +11,7 @@ import type { tools } from "../../content";
 import { useRouter } from "next/router";
 import { validateFiles } from "../../src/utils";
 type AcceptedFileTypes = {
-  [key in ".pdf" | ".pptx" | ".docx" | ".xlsx" | ".jpg" | ".html"]: string;
+  [key in ".pdf"]: string;
 };
 interface FileInputFormProps {
   data: {
@@ -44,6 +44,9 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
   const errorMessage = useSelector(
     (state: { tool: ToolState }) => state.tool.errorMessage
   );
+  const options = useSelector(
+    (state: { tool: ToolState }) => state.tool.options
+  );
   const dispatch = useDispatch();
   // file store
   const {
@@ -54,6 +57,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     setSubmitBtn,
     filesLengthOnSubmit,
     setFilesLengthOnSubmit,
+    imageFile
   } = useFileStore();
   // refs
   const fileInput = useRef<HTMLInputElement>(null);
@@ -97,7 +101,9 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           files,
           errors,
           filesLengthOnSubmit,
-          setFilesLengthOnSubmit
+          setFilesLengthOnSubmit,
+          options,
+          imageFile
         )
       }
       method="POST"
@@ -131,7 +137,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           accept={
             acceptedFileTypes[data.type as keyof typeof acceptedFileTypes]
           }
-          multiple={statePath !== "split-pdf" && statePath !== "pdf-to-pdf-a"}
+          // multiple={statePath !== "split-pdf" && statePath !== "pdf-to-pdf-a"}
           ref={fileInput}
           className="position-absolute file-input"
           onClick={(e) => {

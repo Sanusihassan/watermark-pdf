@@ -3,6 +3,7 @@ import { create } from "zustand";
 
 export interface FileStore {
   files: File[];
+  imageFile: File | null;
   fileInput: RefObject<HTMLInputElement> | null;
   submitBtn: React.RefObject<HTMLButtonElement> | null;
   downloadBtn: React.RefObject<HTMLAnchorElement> | null;
@@ -12,6 +13,7 @@ export interface FileStore {
     imageUrl: string;
   }[];
   setFiles: (files: FileList | File[]) => void;
+  setImageFile: (file: File | null) => void;
   setFileInput: (refEl: RefObject<HTMLInputElement> | null) => void;
   setSubmitBtn: (refEl: React.RefObject<HTMLButtonElement> | null) => void;
   setDownloadBtn: (refEl: React.RefObject<HTMLAnchorElement> | null) => void;
@@ -28,6 +30,7 @@ export interface FileStore {
 
 export const useFileStore = create<FileStore>((set) => ({
   files: [],
+  imageFile: null,
   fileInput: null,
   downloadBtn: null,
   submitBtn: null,
@@ -43,6 +46,9 @@ export const useFileStore = create<FileStore>((set) => ({
     }
 
     set({ files: Array.from(uniqueFiles) });
+  },
+  setImageFile(imageFile) {
+    set({imageFile})
   },
   setFileInput(refEl: RefObject<HTMLInputElement> | null) {
     set({ fileInput: refEl });
