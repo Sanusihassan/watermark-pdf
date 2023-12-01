@@ -53,6 +53,9 @@ export const getFileDetailsTooltipContent = async (
   dispatch: Dispatch<AnyAction>,
   errors: _
 ): Promise<string> => {
+  if(!file) {
+    return Promise.reject("NOT A FILE");
+  }
   const sizeInBytes = file.size;
   let size: string = "";
   let isoCode = lang === "fr" ? "fr-FR" : lang == "" ? "en" : lang;

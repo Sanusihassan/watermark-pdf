@@ -129,7 +129,7 @@ const DisplayFile = ({
   // };
 
   return (
-    <div className="display-file">
+    <div className="display-file position-relative">
       <FileCard
         file={files[0]}
         errors={errors}
