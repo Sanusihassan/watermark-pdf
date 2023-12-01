@@ -60,12 +60,12 @@
         }
       }
       .mosaic {
-        outline: 1px solid;
         @include extend("h-100 w-100 position-absolute");
         .bullet-row {
-          height: auto;
-          outline: 1px solid;
-          * {
+          // height: auto;
+          
+          @include extend("w-100");
+          &, * {
             @include extend("position-absolute");
           }
           :first-child {
@@ -78,13 +78,13 @@
             right: 0;
           }
           &.top {
-            top: 0;
+            top: -1%;
           }
           &.middle {
             @include extend("middle");
           }
           &.bottom {
-            bottom: 0;
+            bottom: 5%;
           }
         }
         top: 0;

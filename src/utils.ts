@@ -68,7 +68,7 @@ export const getFileDetailsTooltipContent = async (
   let tooltipContent = size;
   if (file.size === 0) {
     emptyPDFHandler(dispatch, errors);
-    throw Error("ERROR: FILE_SIZE_ZERO");
+    // throw Error("ERROR: FILE_SIZE_ZERO");
   } else {
     if (
       file.type !== "image/png" &&
