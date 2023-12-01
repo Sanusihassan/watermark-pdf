@@ -25,7 +25,7 @@ export const AddWaterMarkOptions = () => {
           Place image
         </button>
       </div>
-      <TextImageOptions layout="image" />
+      <TextImageOptions layout={type} />
     </div>
   );
 };

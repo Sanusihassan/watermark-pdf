@@ -2,8 +2,17 @@ import React from "react";
 
 import { ReactAnglePicker } from "react-angle-picker";
 import { THEME_COLOR } from "./TextImageOptions";
+import { useSelector } from "react-redux";
+import { ToolState, setOptions } from "@/src/store";
+import { useDispatch } from "react-redux";
 const AnglePicker = () => {
-  const [angle, setAngle] = React.useState(30);
+  const dispatch = useDispatch();
+  const setAngle = (angle: number) => {
+    dispatch(setOptions({ angle }));
+  };
+  const angle = useSelector(
+    (state: { tool: ToolState }) => state.tool.options.angle
+  );
   return (
     <div>
       <div>{angle}º</div>

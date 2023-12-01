@@ -2,6 +2,7 @@
   height: 100%;
   %switch-btn {
     flex: 0 1 50%;
+    outline: none;
     @include extend(
       "d-flex flex-column align-items-center btn btn-lg btn-light"
     );
@@ -21,6 +22,16 @@
   .text-options {
     .text-format-row {
       @include extend("justify-content-between align-items-center p-0");
+      ._btn {
+        outline: none;
+        @include extend("btn");
+
+        // Styles for the button
+        &.text-underline {
+          // Styles for the underlined text
+          text-decoration: underline !important;
+        }
+      }
     }
     %flex-center-y {
       @include extend("d-flex align-items-center");
@@ -36,7 +47,7 @@
 
       .icon-container {
         @include extend("col-3 flex-center-y justify-content-center");
-        
+
         .icon {
           stroke: map-get($color-map, "add-watermark");
           // @include extend("w-100 h-100");

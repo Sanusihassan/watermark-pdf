@@ -1,5 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+type SettingsOptions = {
+  text: string;
+  font: string;
+  fontSize: number;
+  color: string;
+  position: string;
+  mosaic: boolean;
+  opacity: number;
+  angle: number;
+  fromPage: number;
+  toPage: number;
+  isBold: boolean;
+  isItalic: boolean;
+  isUnderlined: boolean;
+  layer: "below" | "over";
+};
+
 export interface ToolState {
   showTool: boolean;
   isSubmitted: boolean;
@@ -12,6 +29,8 @@ export interface ToolState {
   showDownloadBtn: boolean;
   showOptions: boolean;
   nav_height: number;
+  options: SettingsOptions;
+  pageCount: number;
 }
 
 const initialState: ToolState = {
@@ -26,6 +45,23 @@ const initialState: ToolState = {
   showDownloadBtn: false,
   showOptions: false,
   nav_height: 0,
+  options: {
+    text: "PDFEquips",
+    font: "arial",
+    fontSize: 16,
+    color: "#000000FF",
+    position: "top left",
+    mosaic: false,
+    opacity: 1,
+    angle: 30,
+    fromPage: 1,
+    toPage: 0,
+    isBold: false,
+    isItalic: false,
+    isUnderlined: false,
+    layer: "over",
+  },
+  pageCount: 0,
 };
 
 const toolSlice = createSlice({
@@ -72,6 +108,18 @@ const toolSlice = createSlice({
     setNavHeight(state: ToolState, action: PayloadAction<number>) {
       state.nav_height = action.payload;
     },
+    setPageCount(state: ToolState, action: PayloadAction<number>) {
+      state.pageCount = action.payload;
+    },
+    setOptions(
+      state: ToolState,
+      action: PayloadAction<Partial<SettingsOptions>>
+    ) {
+      state.options = {
+        ...state.options,
+        ...action.payload,
+      };
+    },
   },
 });
 
@@ -88,6 +136,8 @@ export const {
   setShowDownloadBtn,
   setShowOptions,
   setNavHeight,
+  setOptions,
+  setPageCount,
 } = toolSlice.actions;
 
 export default toolSlice.reducer;

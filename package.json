@@ -37,6 +37,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.7",
     "sass": "^1.66.1",
     "terser-webpack-plugin": "^5.3.9"
   }

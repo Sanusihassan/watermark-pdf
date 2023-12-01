@@ -5,8 +5,6 @@ import FileCard from "./FileCard";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { isDraggableExtension } from "../../src/utils";
 import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import store, { ToolState } from "../../src/store";
 import { useFileStore } from "../../src/file-store";
 
 type FileProps = {
@@ -27,8 +25,7 @@ const Files = ({
   fileDetailProps,
 }: FileProps) => {
   // const store = useSelector((state: { tool: ToolState }) => state.tool);
-  const { files, imageUrls, setImageUrls } = useFileStore();
-
+  const { files } = useFileStore();
   useEffect(() => {}, [files]);
 
   const router = useRouter();
