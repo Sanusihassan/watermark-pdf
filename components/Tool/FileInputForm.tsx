@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 // store
-import { ToolState, setClick, setFocus } from "../../src/store";
+import { ToolState, setClick, setFocus, setOptions } from "../../src/store";
 import { handleUpload } from "../../src/handlers/handleUpload";
 import { handleChange } from "../../src/handlers/handleChange";
 import { useFileStore } from "../../src/file-store";
@@ -57,12 +57,15 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     setSubmitBtn,
     filesLengthOnSubmit,
     setFilesLengthOnSubmit,
-    imageFile
+    imageFile,
   } = useFileStore();
   // refs
   const fileInput = useRef<HTMLInputElement>(null);
   const submitBtn = useRef<HTMLButtonElement>(null);
   const downloadBtn = useRef<HTMLAnchorElement>(null);
+  const pageCount = useSelector(
+    (state: { tool: ToolState }) => state.tool.pageCount
+  );
   useEffect(() => {
     setFileInput(fileInput);
     setSubmitBtn(submitBtn);
@@ -79,8 +82,11 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
       });
       // }, 3000);
       // }
+      if (options.toPage === 0 && pageCount > 0) {
+        dispatch(setOptions({ toPage: pageCount }));
+      }
     });
-  }, []);
+  }, [pageCount]);
   // path
   const router = useRouter();
   let path = router.asPath.replace(/^\/[a-z]{2}\//, "").replace(/^\//, "");

@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 export const THEME_COLOR = "#e55039";
 import { Range } from "react-range";
@@ -28,6 +28,9 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
     // setChecked((prev) => !prev);
     dispatch(setOptions({ mosaic: !options.mosaic }));
   }, []);
+  useEffect(() => {
+    console.log(options);
+  }, [options]);
   return (
     <div className="container text-options w-100 pt-2">
       <TextFormat layout={layout} />
@@ -143,7 +146,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
             className="form-control"
             min={0}
             max={pageCount}
-            value={pageCount}
+            defaultValue={pageCount}
             onChange={(e) =>
               dispatch(setOptions({ toPage: e.target.valueAsNumber }))
             }

@@ -33,11 +33,11 @@ export const handleUpload = async (
 
   if (!files) return;
   // subscribe to the files state and get the previous files
-  if (filesLengthOnSubmit == files.length) {
-    dispatch(setShowDownloadBtn(true));
-    dispatch(resetErrorMessage());
-    return;
-  }
+  // if (filesLengthOnSubmit == files.length) {
+  //   dispatch(setShowDownloadBtn(true));
+  //   dispatch(resetErrorMessage());
+  //   return;
+  // }
 
   const formData = new FormData();
   for (let i = 0; i < files.length; i++) {
@@ -45,19 +45,19 @@ export const handleUpload = async (
   }
   // append options
   formData.append("options", JSON.stringify(options));
+  // how to set the Content-type to multipart/formdata
   formData.append("imageFile", imageFile as File);
   let url;
   // @ts-ignore
   if (process.env.NODE_ENV === "development") {
-    url = `http://127.0.0.1:5000/${state.path}`;
+    url = `https://5000-sanusihassa-pdfequipsap-an0f23dtcs4.ws-eu106.gitpod.io/api/${state.path}`;
     // url = `https://5000-planetcreat-pdfequipsap-te4zoi6qkr3.ws-eu102.gitpod.io/${state.path}`;
   } else {
     url = `/api/${state.path}`;
   }
-  if (state.errorMessage) {
-    return;
-  }
-  // formData.append("compress_amount", String(state.compressPdf));
+  // if (state.errorMessage) {
+  //   return;
+  // }
   const originalFileName = files[0]?.name?.split(".").slice(0, -1).join(".");
 
   const mimeTypeLookupTable: {
@@ -74,9 +74,13 @@ export const handleUpload = async (
   };
 
   try {
-    const response = await axios.post(url, formData, {
-      responseType: "arraybuffer",
-    });
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      responseType: 'arraybuffer' as 'arraybuffer'
+    };
+    const response = await axios.post(url, formData, config);
     // const originalFileName = files[0]?.name?.split(".").slice(0, -1).join(".");
     const mimeType = response.data.type || response.headers["content-type"];
     const mimeTypeData = mimeTypeLookupTable[mimeType] || {
@@ -103,9 +107,10 @@ export const handleUpload = async (
   } catch (error) {
     if ((error as { code: string }).code === "ERR_NETWORK") {
       dispatch(setErrorMessage(errors.ERR_NETWORK.message));
-      return;
+      console.log(error);
+      // return;
     }
-    dispatch(setIsSubmitted(false));
+    // dispatch(setIsSubmitted(false));
   } finally {
     dispatch(setIsSubmitted(false));
   }
