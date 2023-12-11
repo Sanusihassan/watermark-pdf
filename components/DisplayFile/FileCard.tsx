@@ -21,6 +21,47 @@ type CardProps = OmitFileName<ActionProps> & {
   index?: number | string;
 };
 
+const Layout = ({ bulletPosition }: { bulletPosition: string }) => {
+  const options = useSelector(
+    (state: { tool: ToolState }) => state.tool.options
+  );
+  useEffect(() => {
+    console.log(options.mosaic);
+  }, [options]);
+
+  return (
+    <>
+      {!options.mosaic ? (
+        <div className={`page-number-bullet ${bulletPosition}`}></div>
+      ) : (
+        <MosaicLayout />
+      )}
+    </>
+  );
+};
+
+const MosaicLayout = () => {
+  return (
+    <div className="mosaic">
+      <div className="top bullet-row">
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+      </div>
+      <div className="middle bullet-row">
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+      </div>
+      <div className="bottom bullet-row">
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+        <div className="page-number-bullet"></div>
+      </div>
+    </div>
+  );
+};
+
 const FileCard = ({
   file,
   errors,
@@ -35,9 +76,6 @@ const FileCard = ({
   );
   const bulletPosition = useSelector(
     (state: { tool: ToolState }) => state.tool.options.position
-  );
-  const mosaic = useSelector(
-    (state: { tool: ToolState }) => state.tool.options.mosaic
   );
   const dispatch = useDispatch();
   let isSubscribed = true;
@@ -91,27 +129,7 @@ const FileCard = ({
         {imageUrls.map((imageUrl, index) => (
           <div key={index.toString()} className="page">
             <ImageWithLoader imageUrl={imageUrl} loader_text={loader_text} />
-            {!mosaic ? (
-              <div className={`page-number-bullet ${bulletPosition}`}></div>
-            ) : (
-              <div className="mosaic">
-                <div className="top bullet-row">
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                </div>
-                <div className="middle bullet-row">
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                </div>
-                <div className="bottom bullet-row">
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                  <div className="page-number-bullet"></div>
-                </div>
-              </div>
-            )}
+            <Layout bulletPosition={bulletPosition} />
           </div>
         ))}
       </div>

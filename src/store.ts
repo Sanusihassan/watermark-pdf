@@ -10,7 +10,7 @@ type SettingsOptions = {
   opacity: number;
   angle: number;
   fromPage: number;
-  toPage: number;
+  toPage: number | null;
   isBold: boolean;
   isItalic: boolean;
   isUnderlined: boolean;
@@ -55,7 +55,7 @@ const initialState: ToolState = {
     opacity: 1,
     angle: 30,
     fromPage: 1,
-    toPage: 0,
+    toPage: null,
     isBold: false,
     isItalic: false,
     isUnderlined: false,

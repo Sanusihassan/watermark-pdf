@@ -13,10 +13,11 @@ import { TextFormat } from "./TextFormat";
 import { ToolState, setOptions } from "@/src/store";
 import { PositionGrid } from "./PositionGrid";
 import { useFileStore } from "@/src/file-store";
+import { XIcon } from "@heroicons/react/solid";
 
 export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
   const dispatch = useDispatch();
-  const { setImageFile } = useFileStore();
+  const { setImageFile, imageFile } = useFileStore();
   const [layerOption, setLayerOption] = useState<"below" | "over">("over");
   const options = useSelector(
     (state: { tool: ToolState }) => state.tool.options
@@ -27,10 +28,11 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
   const handleCheckChange = useCallback(() => {
     // setChecked((prev) => !prev);
     dispatch(setOptions({ mosaic: !options.mosaic }));
-  }, []);
+  }, [options.mosaic]);
   useEffect(() => {
     console.log(options);
   }, [options]);
+  const [imageSrc, setImageSrc] = useState("");
   return (
     <div className="container text-options w-100 pt-2">
       <TextFormat layout={layout} />
@@ -42,13 +44,23 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
           onChange={(e) => {
             if (e.target.files) {
               setImageFile(e.target.files[0]);
+              setImageSrc(URL.createObjectURL(e.target.files[0]));
             }
           }}
         />
         <div className="icon-container">
-          <IoImageOutline className="icon" />
+          {imageFile !== null ? (
+            <img src={imageSrc} className="icon" />
+          ) : (
+            <IoImageOutline className="icon" />
+          )}
         </div>
         <span>Add Image</span>
+        {imageFile !== null ? <button className="delete-image btn btn-danger" onClick={() => {
+          setImageFile(null);
+        }}>
+        <XIcon className="icon" />
+        </button> : null}
       </button>
       <h6>Position</h6>
       <Row>

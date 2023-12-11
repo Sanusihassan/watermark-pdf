@@ -50,7 +50,7 @@ export const handleUpload = async (
   let url;
   // @ts-ignore
   if (process.env.NODE_ENV === "development") {
-    url = `https://5000-sanusihassa-pdfequipsap-an0f23dtcs4.ws-eu106.gitpod.io/api/${state.path}`;
+    url = `https://5000-sanusihassa-pdfequipsap-g2ebi10jlh4.ws-eu106.gitpod.io/api/${state.path}`;
     // url = `https://5000-planetcreat-pdfequipsap-te4zoi6qkr3.ws-eu102.gitpod.io/${state.path}`;
   } else {
     url = `/api/${state.path}`;
@@ -76,9 +76,9 @@ export const handleUpload = async (
   try {
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data'
+        "Content-Type": "multipart/form-data",
       },
-      responseType: 'arraybuffer' as 'arraybuffer'
+      responseType: "arraybuffer" as "arraybuffer",
     };
     const response = await axios.post(url, formData, config);
     // const originalFileName = files[0]?.name?.split(".").slice(0, -1).join(".");
