@@ -22,13 +22,15 @@ export const tool: _tool = {
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "merge-pdf": ["PDF文件已合并！", "PDF文件已合并！"],
+    "add-watermark": ["PDF 已成功加盖印章！", "PDF 已成功加盖印章！"],
   },
+
   btnText: {
-    "merge-pdf": ["下载合并后的PDF文件", "下载合并后的PDF文件"],
+    "add-watermark": ["下载已盖章的 PDF 文件", "下载已盖章的 PDF 文件"],
   },
+
   backto: {
-    "merge-pdf": "返回合并PDF",
+    "add-watermark": "返回至添加水印",
   },
 };
 
@@ -43,6 +45,28 @@ export const edit_page: _edit_page = {
   },
   pages: "页",
   page: "页",
+  options: {
+    text_format: {
+      text: "文本",
+      text_format: "文本格式",
+      font: "字体",
+      font_size: "字体大小",
+      color: "颜色",
+      font_placeholder: "字体",
+    },
+    add_image: "添加图片",
+    change_image: "更改图片",
+    position: "位置",
+    mosaic: "马赛克",
+    opacity: "不透明度",
+    rotation: "旋转",
+    pages: "页数",
+    from_page: "从页面",
+    to: "至",
+    layer: "图层",
+    over: "覆盖PDF内容",
+    below: "在PDF内容下方",
+  },
 };
 
 export const tools: _tools = {

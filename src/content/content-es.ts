@@ -31,6 +31,28 @@ export const edit_page: _edit_page = {
   },
   pages: "páginas",
   page: "página",
+  options: {
+    text_format: {
+      text: "Texto",
+      text_format: "Formato de texto",
+      font: "Fuente",
+      font_size: "Tamaño de fuente",
+      color: "Color",
+      font_placeholder: "Fuente",
+    },
+    add_image: "Agregar imagen",
+    change_image: "Cambiar imagen",
+    position: "Posición",
+    mosaic: "Mosaico",
+    opacity: "Opacidad",
+    rotation: "Rotación",
+    pages: "Páginas",
+    from_page: "Desde la página",
+    to: "A",
+    layer: "Capa",
+    over: "Sobre el contenido del PDF",
+    below: "Debajo del contenido del PDF",
+  },
 };
 
 export const tools: _tools = {
@@ -42,19 +64,21 @@ export const tools: _tools = {
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "merge-pdf": [
-      "¡Combinación de archivos PDF exitosa!",
-      "¡Combinación de archivo PDF exitosa!",
+    "add-watermark": [
+      "¡Los PDF han sido sellados exitosamente!",
+      "¡El PDF ha sido sellado exitosamente!",
     ],
   },
+
   btnText: {
-    "merge-pdf": [
-      "Descargar archivos PDF combinados",
-      "Descargar archivo PDF combinado",
+    "add-watermark": [
+      "Descargar archivos PDF sellados",
+      "Descargar archivo PDF sellado",
     ],
   },
+
   backto: {
-    "merge-pdf": "Volver a unir PDF",
+    "add-watermark": "Volver a Agregar Marca de Agua",
   },
 };
 

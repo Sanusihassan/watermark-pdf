@@ -28,13 +28,18 @@ export const tools: _tools = {
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "merge-pdf": ["تم دمج ملفات ال PDF!", "تم دمج ملف ال PDF!"],
+    "add-watermark": [
+      "تم وضع الطوابع على ملفات PDF بنجاح!",
+      "تم وضع الطابع على ملف PDF بنجاح!",
+    ],
   },
+
   btnText: {
-    "merge-pdf": ["تحميل ملفات PDF المدموجة", "تحميل ملف PDF مدموج"],
+    "add-watermark": ["تحميل ملفات PDF المختومة", "تحميل ملف PDF المختوم"],
   },
+
   backto: {
-    "merge-pdf": "العودة إلى دمج ملفات PDF",
+    "add-watermark": "العودة إلى إضافة العلامة المائية",
   },
 };
 
@@ -49,6 +54,28 @@ export const edit_page: _edit_page = {
   },
   pages: "صفحات",
   page: "صفحة",
+  options: {
+    text_format: {
+      text: "النص",
+      text_format: "تنسيق النص",
+      font: "الخط",
+      font_size: "حجم الخط",
+      color: "اللون",
+      font_placeholder: "الخط",
+    },
+    add_image: "إضافة صورة",
+    change_image: "تغيير الصورة",
+    position: "الموضع",
+    mosaic: "الفسيفساء",
+    opacity: "الشفافية",
+    rotation: "الدوران",
+    pages: "الصفحات",
+    from_page: "من الصفحة",
+    to: "إلى",
+    layer: "الطبقة",
+    over: "فوق محتوى ملف PDF",
+    below: "أسفل محتوى ملف PDF",
+  },
 };
 
 export const errors: _errors = {

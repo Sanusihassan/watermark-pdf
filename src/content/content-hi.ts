@@ -48,19 +48,21 @@ export const tool: _tool = {
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "merge-pdf": [
-      "PDF फ़ाइलें मर्ज़ की गई हैं!",
-      "PDF फ़ाइल को मर्ज़ किया गया है!",
+    "add-watermark": [
+      "पीडीएफ़ सफलतापूर्वक डाक लगा दिए गए हैं!",
+      "पीडीएफ़ सफलतापूर्वक डाक लगा दिया गया है!",
     ],
   },
+
   btnText: {
-    "merge-pdf": [
-      "मर्ज़ की गई PDF फ़ाइलें डाउनलोड करें",
-      "मर्ज़ की गई PDF फ़ाइल डाउनलोड करें",
+    "add-watermark": [
+      "सील किए गए पीडीएफ़ फ़ाइलें डाउनलोड करें",
+      "सील किए गए पीडीएफ़ फ़ाइल डाउनलोड करें",
     ],
   },
+
   backto: {
-    "merge-pdf": "मर्ज़ की गई PDF को वापस जाएं",
+    "add-watermark": "वाटरमार्क में वापस जाएं",
   },
 };
 
@@ -75,6 +77,28 @@ export const edit_page: _edit_page = {
   },
   pages: "पृष्ठ",
   page: "पृष्ठ",
+  options: {
+    text_format: {
+      text: "पाठ",
+      text_format: "पाठ का प्रारूप",
+      font: "फ़ॉन्ट",
+      font_size: "फ़ॉन्ट का आकार",
+      color: "रंग",
+      font_placeholder: "फ़ॉन्ट",
+    },
+    add_image: "छवि जोड़ें",
+    change_image: "छवि बदलें",
+    position: "स्थिति",
+    mosaic: "मोज़ेक",
+    opacity: "अपारदर्शिता",
+    rotation: "रोटेशन",
+    pages: "पृष्ठ",
+    from_page: "से पृष्ठ",
+    to: "तक",
+    layer: "स्तर",
+    over: "PDF सामग्री पर",
+    below: "PDF सामग्री के नीचे",
+  },
 };
 
 export const tools: _tools = {

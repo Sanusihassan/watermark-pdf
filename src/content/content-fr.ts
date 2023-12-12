@@ -29,19 +29,21 @@ export const tools: _tools = {
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "merge-pdf": [
-      "Fusion de fichiers PDF réussie !",
-      "Fusion de fichier PDF réussie !",
+    "add-watermark": [
+      "Les PDF ont été estampillés avec succès !",
+      "Le PDF a été estampillé avec succès !",
     ],
   },
+
   btnText: {
-    "merge-pdf": [
-      "Télécharger les fichiers PDF fusionnés",
-      "Télécharger le fichier PDF fusionné",
+    "add-watermark": [
+      "Télécharger les fichiers PDF estampillés",
+      "Télécharger le fichier PDF estampillé",
     ],
   },
+
   backto: {
-    "merge-pdf": "Retour à Fusionner PDF",
+    "add-watermark": "Retour à Ajouter un Filigrane",
   },
 };
 
@@ -56,6 +58,28 @@ export const edit_page: _edit_page = {
   },
   pages: "pages",
   page: "page",
+  options: {
+    text_format: {
+      text: "Texte",
+      text_format: "Format du texte",
+      font: "Police",
+      font_size: "Taille de la police",
+      color: "Couleur",
+      font_placeholder: "Police",
+    },
+    add_image: "Ajouter une image",
+    change_image: "Changer l'image",
+    position: "Position",
+    mosaic: "Mosaique",
+    opacity: "Opacité",
+    rotation: "Rotation",
+    pages: "Pages",
+    from_page: "De la page",
+    to: "À",
+    layer: "Couche",
+    over: "Sur le contenu du PDF",
+    below: "Sous le contenu du PDF",
+  },
 };
 
 export const errors: _errors = {

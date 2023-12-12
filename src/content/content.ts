@@ -28,6 +28,13 @@ export const tool = {
 }
 the only thing you need to modify for each object you create is the string values just translate them for all of ar, es, fr, hi, zh respectively.
  */
+/**
+ * this object's content is in english i.e the string values of the edit_page object below is in english right?
+ * i want 5 similar objects of the same schema same object name same keys but translate the string values each time for ar, es, fr, hi, zh respectively
+ * each object should be named the same name please this is very important, it does'nt affect my code because they would be in different files
+ * also they're ts objcets and all of them should be of the type _edit_page
+ * i.e the definition of each object should be somthing like: export const edit_page: _edit_page = {...}
+ */
 export const edit_page = {
   edit_page_titles: {
     add_watermark: "Watermark options",
@@ -39,6 +46,28 @@ export const edit_page = {
   },
   pages: "pages",
   page: "page",
+  options: {
+    text_format: {
+      text: "Text",
+      text_format: "Text format",
+      font: "font",
+      font_size: "font size",
+      color: "color",
+      font_placeholder: "font",
+    },
+    add_image: "Add Image",
+    change_image: "Change Image",
+    position: "Position",
+    mosaic: "Mosaic",
+    opacity: "Opacity",
+    rotation: "Rotation",
+    pages: "Pages",
+    from_page: "From Page",
+    to: "To",
+    layer: "Layer",
+    over: "Over the PDF content",
+    below: "Below the PDF content",
+  },
 };
 
 export const tools = {
@@ -50,15 +79,21 @@ export const tools = {
 
 export const downloadFile = {
   titles: {
-    "merge-pdf": ["PDF files have been merged!", "PDF file has been merged!"],
+    "add-watermark": [
+      "The PDFs have been stamped successfully!",
+      "The PDF has been stamped successfully!",
+    ],
   },
 
   btnText: {
-    "merge-pdf": ["Download Merged PDF files", "Download Merged PDF file"],
+    "add-watermark": [
+      "Download Stamped PDF files",
+      "Download Stamped PDF file",
+    ],
   },
 
   backto: {
-    "merge-pdf": "Back To Merge PDF",
+    "add-watermark": "Back to Add Watermark",
   },
 };
 

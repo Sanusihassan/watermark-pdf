@@ -30,7 +30,8 @@ import { THEME_COLOR } from "./TextImageOptions";
 import { ToolState, setOptions } from "@/src/store";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-export const TextFormat = ({ layout }: { layout: string }) => {
+import type { edit_page } from "@/content";
+export const TextFormat = ({ layout, text_format }: { layout: string, text_format: edit_page["options"]["text_format"] }) => {
   const [font, setFont] = useState({ label: "Arial", value: "arial" });
   const dispatch = useDispatch();
   const options = useSelector(
@@ -53,18 +54,18 @@ export const TextFormat = ({ layout }: { layout: string }) => {
   return (
     <>
       <div className={`${layout == "image" ? "d-none" : ""}`}>
-        <h6>Text</h6>
+        <h6>{text_format.text}</h6>
         <input
           value={options.text}
           onChange={(e) => dispatch(setOptions({ text: e.target.value }))}
           type="text"
           className="form-control"
         />
-        <h6>Text format</h6>
+        <h6>{text_format.text_format}</h6>
         <Row>
-          <span className="col text-center">font</span>
-          <span className="col text-center">font size</span>
-          <span className="col text-center">color</span>
+          <span className="col text-center">{text_format.font}</span>
+          <span className="col text-center">{text_format.font_size}</span>
+          <span className="col text-center">{text_format.color}</span>
         </Row>
         <Row className="text-format-row m-0">
           <div className="font-setting-col font-col p-0">
@@ -81,7 +82,7 @@ export const TextFormat = ({ layout }: { layout: string }) => {
               }}
               options={fontOptions}
               styles={customStyles}
-              placeholder={"font"}
+              placeholder={text_format.font_placeholder}
             />
           </div>
           <div className="range-setting-col p-0">

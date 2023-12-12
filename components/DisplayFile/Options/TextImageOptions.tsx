@@ -14,8 +14,15 @@ import { ToolState, setOptions } from "@/src/store";
 import { PositionGrid } from "./PositionGrid";
 import { useFileStore } from "@/src/file-store";
 import { XIcon } from "@heroicons/react/solid";
+import type { edit_page } from "@/content";
 
-export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
+export const TextImageOptions = ({
+  layout,
+  content,
+}: {
+  layout: "text" | "image";
+  content: edit_page["options"];
+}) => {
   const dispatch = useDispatch();
   const { setImageFile, imageFile } = useFileStore();
   const [layerOption, setLayerOption] = useState<"below" | "over">("over");
@@ -35,7 +42,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
   const [imageSrc, setImageSrc] = useState("");
   return (
     <div className="container text-options w-100 pt-2">
-      <TextFormat layout={layout} />
+      <TextFormat text_format={content.text_format} layout={layout} />
       <button className={`add-image-btn${layout == "text" ? " d-none" : ""}`}>
         <input
           type="file"
@@ -55,14 +62,23 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
             <IoImageOutline className="icon" />
           )}
         </div>
-        <span>Add Image</span>
-        {imageFile !== null ? <button className="delete-image btn btn-danger" onClick={() => {
-          setImageFile(null);
-        }}>
-        <XIcon className="icon" />
-        </button> : null}
+        {imageFile !== null ? (
+          <span>{content.change_image}</span>
+        ) : (
+          <span>{content.add_image}</span>
+        )}
+        {imageFile !== null ? (
+          <button
+            className="delete-image btn btn-danger"
+            onClick={() => {
+              setImageFile(null);
+            }}
+          >
+            <XIcon className="icon" />
+          </button>
+        ) : null}
       </button>
-      <h6>Position</h6>
+      <h6>{content.position}</h6>
       <Row>
         <PositionGrid />
         <div className="mosaic col p-0">
@@ -73,13 +89,13 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
             onChange={handleCheckChange}
             className="ml-1 my-3 mb-0"
           >
-            Mosaic
+            {content.mosaic}
           </Checkbox>
         </div>
       </Row>
       <Row className="m-0 setting-col opacity-rotation-setting">
         <div className="d-flex m-0 flex-column col p-0 opacity-column">
-          <h6>Opacity</h6>
+          <h6>{content.opacity}</h6>
           <Range
             step={0.1}
             min={0}
@@ -124,16 +140,16 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
           />
         </div>
         <div className="angle-column d-flex m-0 flex-column col p-0">
-          <h6>Rotation</h6>
+          <h6>{content.rotation}</h6>
           <AnglePicker />
         </div>
       </Row>
-      <h6>Pages</h6>
+      <h6>{content.pages}</h6>
       <Row className="m-0 setting-col align-items-center from-to-page justify-content-between">
         <div className="input-group input from p-0">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              From Page
+              {content.from_page}
             </span>
           </div>
           <input
@@ -150,7 +166,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
         <div className="input-group input p-0">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              To
+              {content.to}
             </span>
           </div>
           <input
@@ -165,7 +181,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
           />
         </div>
       </Row>
-      <h6>Layer</h6>
+      <h6>{content.layer}</h6>
       <Row className="m-0 layer-options">
         <div
           className={`d-flex m-0 flex-column col p-0 option${
@@ -173,7 +189,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
           }`}
           onClick={() => setLayerOption("over")}
         >
-          Over the PDF content
+          {content.over}
           <BsLayersHalf className="inverted btn-icon" />
         </div>
         <div
@@ -182,7 +198,7 @@ export const TextImageOptions = ({ layout }: { layout: "text" | "image" }) => {
           }`}
           onClick={() => setLayerOption("below")}
         >
-          Below the PDF content
+          {content.below}
           <BsLayersHalf className="btn-icon" />
         </div>
       </Row>
