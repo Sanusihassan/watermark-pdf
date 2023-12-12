@@ -14,7 +14,7 @@ const AnglePicker = () => {
     (state: { tool: ToolState }) => state.tool.options.angle
   );
   return (
-    <div>
+    <div className="angle-picker">
       <div>{angle}º</div>
       <ReactAnglePicker
         value={angle}

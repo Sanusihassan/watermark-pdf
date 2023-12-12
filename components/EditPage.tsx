@@ -1,27 +1,17 @@
 import { useRouter } from "next/router";
 import DisplayFile from "./DisplayFile";
-import {
-  Dispatch,
-  RefObject,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
-import Options, { OptionsProps } from "./DisplayFile/Options";
+import Options from "./DisplayFile/Options";
 import type { edit_page } from "../content";
 import ErrorElement from "./ErrorElement";
 import type { errors as _ } from "../content";
-import { Spinner } from "react-bootstrap";
 import { CogIcon } from "@heroicons/react/outline";
 // import { ToolStoreContext } from "../src/ToolStoreContext";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ToolState,
   resetErrorMessage,
-  setIsSubmitted,
   setPath,
   setShowOptions,
 } from "../src/store";
@@ -48,9 +38,6 @@ const EditPage = ({
   lang,
   errors,
 }: editPageProps) => {
-  const [isOnline, setIsOnline] = useState(true);
-  const handleOnlineStatus = () => setIsOnline(true);
-  const handleOfflineStatus = () => setIsOnline(false);
   // const [showOptions, setShowOptions] = useState(false);
   // state variables:
   const errorCode = useSelector(
@@ -73,7 +60,7 @@ const EditPage = ({
   );
   const dispatch = useDispatch();
   // actual files;
-  const { files, setFiles, fileInput, submitBtn } = useFileStore();
+  const { files, fileInput } = useFileStore();
   useEffect(() => {
     if (errorCode == "ERR_NO_FILES_SELECTED" && files.length > 0) {
       dispatch(resetErrorMessage());
@@ -153,7 +140,7 @@ const EditPage = ({
             }
           </bdi>
         </h5>
-        <Options layout={k as OptionsProps["layout"]} edit_page={edit_page} />
+        <Options edit_page={edit_page} />
         <SubmitBtn k={k} edit_page={edit_page} />
       </section>
     </aside>

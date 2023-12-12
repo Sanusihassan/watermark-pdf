@@ -165,13 +165,13 @@ export const TextImageOptions = ({
         </div>
         <div className="input-group input p-0">
           <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
+            <span className="input-group-text" id="basic-addon2">
               {content.to}
             </span>
           </div>
           <input
             type="number"
-            className="form-control"
+            className="form-control to"
             min={0}
             max={pageCount}
             defaultValue={pageCount}

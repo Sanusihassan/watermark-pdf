@@ -60,7 +60,12 @@
       }
       .delete-image {
         // @include extend("btn btn-danger");
-        margin-right: .75em;
+        @include all-langs {
+          margin-right: 0.75em;
+        }
+        @include ar-wrapper {
+          margin-left: 0.75em;
+        }
         z-index: 100 !important;
         flex: 0 1 15%;
         margin-top: auto;
@@ -115,14 +120,40 @@
       }
       &.from-to-page {
         .input {
+          // .input-group-text {
+          //   @include ar-wrapper {
+          //     border-radius: 0;
+          //     border-top-left-radius: 0.25rem;
+          //     border-bottom-left-radius: 0.25rem;
+          //   }
+          // }
+          .form-control:not(:first-child):not(.input-group-text) {
+            @include ar-wrapper {
+              border-radius: 0;
+              border-top-left-radius: 0.25rem;
+              border-bottom-left-radius: 0.25rem;
+            }
+          }
+          .input-group-text {
+            @include ar-wrapper {
+              border-radius: 0 !important;
+            }
+          }
+          // .form-control {
+          // }
           &.from {
             flex: 0 1 57.5%;
+            @include ar-wrapper {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
           }
           flex: 0 1 41%;
         }
       }
     }
   }
+
   .boxes-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -131,6 +162,9 @@
     border: 1px dashed #dcdc;
     border-bottom: 0;
     border-right: 0;
+    @include ar-wrapper {
+      transform: rotateY(-180deg);
+    }
     .box {
       @include extend("d-flex justify-content-center align-items-center");
       border-bottom: 1px dashed #dcdc;
@@ -172,31 +206,14 @@
       left: unset !important;
     }
   }
-  // // angle-picker styles
-  // .angle-picker {
-  //   display: flex;
-  //   align-items: center;
-  //   width: 30px;
-  //   height: 30px;
-  // }
-
-  // .angle-rotater {
-  //   width: 30px;
-  //   height: 30px;
-  //   position: relative;
-  //   border-radius: 50%;
-  //   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
-  // }
-
-  // .angle-dot {
-  //   position: absolute;
-  //   width: 8px;
-  //   height: 8px;
-  //   bottom: 3px;
-  //   border-radius: 50%;
-  //   background-color: #58595b;
-  //   margin: 0;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  // }
+  // angle-picker styles
+  .angle-picker {
+    direction: ltr;
+  }
+  .range-track {
+    @include ar-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
