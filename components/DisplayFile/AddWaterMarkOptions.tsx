@@ -2,10 +2,13 @@ import { MdFormatColorText } from "react-icons/md";
 import { IoImageOutline } from "react-icons/io5";
 import { useState } from "react";
 import { TextImageOptions } from "./Options/TextImageOptions";
+import type { edit_page } from "@/content";
 
 type WaterMarkType = "text" | "image";
 
-export const AddWaterMarkOptions = () => {
+export const AddWaterMarkOptions = ({options}: {
+  options: edit_page["options"]
+}) => {
   const [type, setType] = useState<WaterMarkType>("text");
   return (
     <div className="add-watermark-options">
@@ -25,7 +28,7 @@ export const AddWaterMarkOptions = () => {
           Place image
         </button>
       </div>
-      <TextImageOptions layout={type} />
+      <TextImageOptions content={options} layout={type} />
     </div>
   );
 };

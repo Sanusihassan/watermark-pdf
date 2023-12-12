@@ -7,12 +7,12 @@ export interface OptionsProps {
   edit_page: _;
 }
 
-
-
 const Options = ({ layout, edit_page }: OptionsProps) => {
-  return <>
-    <AddWaterMarkOptions />
-  </>
+  return (
+    <>
+      <AddWaterMarkOptions options={edit_page.options} />
+    </>
+  );
 };
 
 export default Options;
