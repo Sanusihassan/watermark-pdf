@@ -50,7 +50,7 @@ export const handleUpload = async (
   let url;
   // @ts-ignore
   if (process.env.NODE_ENV === "development") {
-    url = `https://5000-sanusihassa-pdfequipsap-g2ebi10jlh4.ws-eu106.gitpod.io/api/${state.path}`;
+    url = `https://5000-sanusihassa-pdfequipsap-dvdgm7zyxi2.ws-eu106.gitpod.io/api/${state.path}`;
     // url = `https://5000-planetcreat-pdfequipsap-te4zoi6qkr3.ws-eu102.gitpod.io/${state.path}`;
   } else {
     url = `/api/${state.path}`;

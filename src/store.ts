@@ -47,7 +47,7 @@ const initialState: ToolState = {
   nav_height: 0,
   options: {
     text: "PDFEquips",
-    font: "Arial",
+    font: "arial",
     fontSize: 16,
     color: "#000000FF",
     position: "top left",
