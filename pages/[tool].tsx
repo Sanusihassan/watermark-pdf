@@ -1,5 +1,5 @@
 import Head from "next/head";
-import NavBar from "@/components/NavBar/NavBar";
+import NavBar from "pdfequips-navbar/NavBar";
 import Tool from "../components/Tool";
 import {
   edit_page,
@@ -8,6 +8,8 @@ import {
   tools,
   downloadFile,
 } from "../src/content/content";
+import { useRouter } from "next/router";
+import { AddWatermarkHOWTO } from "@/src/how-to";
 
 type data_type = {
   title: string;
@@ -37,19 +39,39 @@ export async function getStaticProps({
 }
 
 export default ({ item }: { item: data_type }) => {
+  const router = useRouter();
+  const { asPath } = router;
+  const websiteSchema = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name: `PDFEquips ${item.title}`,
+    description: item.description,
+    url: `https://www.pdfequips.com${asPath}`,
+  };
   return (
     <>
       <Head>
         <title>{`PDFEquips | ${item.title}`}</title>
         <meta name="description" content={item.description} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(AddWatermarkHOWTO),
+          }}
+        />
         <link rel="icon" href="/logo.png" />
-        {/* needed for styles */}
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         />
       </Head>
-      <NavBar lang="" />
+      <NavBar path="add-watermark" lang="" />
       <Tool
         tools={tools}
         data={item}
