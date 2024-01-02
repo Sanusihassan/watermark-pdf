@@ -36,9 +36,7 @@ export const TextImageOptions = ({
     // setChecked((prev) => !prev);
     dispatch(setOptions({ mosaic: !options.mosaic }));
   }, [options.mosaic]);
-  useEffect(() => {
-    console.log(options);
-  }, [options]);
+  useEffect(() => {}, [options]);
   const [imageSrc, setImageSrc] = useState("");
   return (
     <div className="container text-options w-100 pt-2">

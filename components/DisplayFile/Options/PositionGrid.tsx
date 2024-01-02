@@ -6,7 +6,7 @@ export const PositionGrid = () => {
   const [position, setPosition] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    // console.log(position);
+    //
   }, [position]);
   const posToStr = (pos: number): string => {
     let bulletPosition = "";

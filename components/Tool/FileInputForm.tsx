@@ -55,8 +55,8 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     setFileInput,
     setDownloadBtn,
     setSubmitBtn,
-    filesLengthOnSubmit,
-    setFilesLengthOnSubmit,
+    filesOnSubmit,
+    setFilesOnSubmit,
     imageFile,
   } = useFileStore();
   // refs
@@ -106,8 +106,8 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           },
           files,
           errors,
-          filesLengthOnSubmit,
-          setFilesLengthOnSubmit,
+          filesOnSubmit,
+          setFilesOnSubmit,
           options,
           imageFile
         )

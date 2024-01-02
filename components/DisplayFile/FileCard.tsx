@@ -25,9 +25,7 @@ const Layout = ({ bulletPosition }: { bulletPosition: string }) => {
   const options = useSelector(
     (state: { tool: ToolState }) => state.tool.options
   );
-  useEffect(() => {
-    console.log(options.mosaic);
-  }, [options]);
+  useEffect(() => {}, [options]);
 
   return (
     <>

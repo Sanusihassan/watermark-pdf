@@ -12,7 +12,22 @@ import {
   setShowDownloadBtn,
 } from "../store";
 
-// this is the handleUpload function that is calling the download function maybe the issue is here
+let prevSettings: ToolState["options"] = {
+  text: "PDFEquips",
+  font: "arial",
+  fontSize: 16,
+  color: "#000000FF",
+  position: "top left",
+  mosaic: false,
+  opacity: 1,
+  angle: 30,
+  fromPage: 1,
+  toPage: null,
+  isBold: false,
+  isItalic: false,
+  isUnderlined: false,
+  layer: "over",
+};
 export const handleUpload = async (
   e: React.FormEvent<HTMLFormElement>,
   downloadBtn: RefObject<HTMLAnchorElement>,
@@ -23,8 +38,8 @@ export const handleUpload = async (
   },
   files: File[],
   errors: _,
-  filesLengthOnSubmit: number,
-  setFilesLengthOnSubmit: (value: number) => void,
+  filesOnSubmit: string[],
+  setFilesOnSubmit: (value: string[]) => void,
   options: ToolState["options"],
   imageFile: File | null
 ) => {
@@ -32,12 +47,23 @@ export const handleUpload = async (
   dispatch(setIsSubmitted(true));
 
   if (!files) return;
-  // subscribe to the files state and get the previous files
-  // if (filesLengthOnSubmit == files.length) {
-  //   dispatch(setShowDownloadBtn(true));
-  //   dispatch(resetErrorMessage());
-  //   return;
-  // }
+  // Extract file names from the File[] array
+  const fileNames = files.map((file) => file.name);
+
+  // Check if every file name in files is present in filesOnSubmit
+  const allFilesPresent = fileNames.every((fileName) =>
+    filesOnSubmit.includes(fileName)
+  );
+
+  if (
+    allFilesPresent &&
+    files.length === filesOnSubmit.length &&
+    JSON.stringify(prevSettings) === JSON.stringify(options)
+  ) {
+    dispatch(setShowDownloadBtn(true));
+    dispatch(resetErrorMessage());
+    return;
+  }
 
   const formData = new FormData();
   for (let i = 0; i < files.length; i++) {
@@ -96,7 +122,8 @@ export const handleUpload = async (
       outputFileName,
       downloadBtn
     );
-    setFilesLengthOnSubmit(files.length);
+    setFilesOnSubmit(files.map((f) => f.name));
+    prevSettings = options;
 
     if (response.status !== 200) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -107,7 +134,7 @@ export const handleUpload = async (
   } catch (error) {
     if ((error as { code: string }).code === "ERR_NETWORK") {
       dispatch(setErrorMessage(errors.ERR_NETWORK.message));
-      console.log(error);
+
       // return;
     }
     // dispatch(setIsSubmitted(false));

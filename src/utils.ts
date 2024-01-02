@@ -53,7 +53,7 @@ export const getFileDetailsTooltipContent = async (
   dispatch: Dispatch<AnyAction>,
   errors: _
 ): Promise<string> => {
-  if(!file) {
+  if (!file) {
     return Promise.reject("NOT A FILE");
   }
   const sizeInBytes = file.size;
@@ -150,7 +150,7 @@ export async function getFirstPageAsImage(
       return canvas.toDataURL();
     } catch (error) {
       dispatch(setErrorMessage(errors.FILE_CORRUPT.message));
-      console.log(error);
+
       return DEFAULT_PDF_IMAGE; // Return the placeholder image URL when an error occurs
     }
   }
@@ -257,7 +257,7 @@ export const validateFiles = (
       return false;
     } else if (!file.size) {
       // handle EMPTY_FILE error
-      console.log("file.size", file.size);
+
       dispatch(setErrorMessage(errors.EMPTY_FILE.message));
       dispatch(setErrorCode("ERR_EMPTY_FILE"));
       return false;
@@ -335,7 +335,7 @@ export async function getNthPageAsImage(
       return canvas.toDataURL();
     } catch (error) {
       dispatch(setErrorMessage(errors.FILE_CORRUPT.message));
-      console.log(error);
+
       return DEFAULT_PDF_IMAGE; // Return the placeholder image URL when an error occurs
     }
   }
