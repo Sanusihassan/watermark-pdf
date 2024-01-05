@@ -12,8 +12,10 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "Ajouter un filigrane",
+    seoTitle:
+      "Ajouter un filigrane à un PDF en ligne - Outil de filigrane PDF personnalisable | PDFEquips",
     description:
-      "Appliquez facilement une image ou un texte superposé à votre PDF. Personnalisez la typographie, la transparence et la position.",
+      "Appliquez facilement une superposition d'image ou de texte sur votre PDF. Personnalisez la typographie, la transparence et l'emplacement.",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",

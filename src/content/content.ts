@@ -1,6 +1,8 @@
 export const tool = {
   Add_Watermark: {
     title: "Add Watermark",
+    seoTitle:
+      "Add Watermark to PDF Online - Customizable PDF Watermark Tool | PDFEquips",
     description:
       "Effortlessly apply an image or text overlay onto your PDF. Customize typography, transparency, and placement.",
     color: "#e55039",

@@ -11,8 +11,10 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "إضافة علامة مائية",
+    seoTitle:
+      "إضافة علامة مائية إلى ملف PDF عبر الإنترنت - أداة تعيين علامة مائية للـ PDF | PDFEquips",
     description:
-      "قم بتطبيق صورة أو نص فوق ملف PDF بسهولة. قم بتخصيص الخط والشفافية والموضع.",
+      "ضع بسهولة صورة أو نص مرئي على ملف PDF الخاص بك. قم بتخصيص الطباعة والشفافية والموضع.",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",

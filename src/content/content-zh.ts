@@ -12,6 +12,7 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "添加水印",
+    seoTitle: "在线给 PDF 添加水印 - 可定制的 PDF 水印工具 | PDFEquips",
     description:
       "轻松在您的PDF上应用图像或文本叠加。自定义字体、透明度和位置。",
     color: "#e55039",

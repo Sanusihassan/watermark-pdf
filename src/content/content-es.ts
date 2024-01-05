@@ -12,8 +12,10 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "Agregar marca de agua",
+    seoTitle:
+      "Añadir marca de agua a PDF en línea - Herramienta personalizable de marca de agua | PDFEquips",
     description:
-      "Aplica fácilmente una imagen o texto superpuesto en tu PDF. Personaliza la tipografía, transparencia y posición.",
+      "Aplica fácilmente una superposición de imagen o texto en tu PDF. Personaliza tipografía, transparencia y posición.",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
