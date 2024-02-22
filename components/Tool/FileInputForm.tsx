@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 // store
-import { ToolState, setClick, setFocus, setOptions } from "../../src/store";
+import { ToolState, setOptions } from "../../src/store";
 import { handleUpload } from "../../src/handlers/handleUpload";
 import { handleChange } from "../../src/handlers/handleChange";
 import { useFileStore } from "../../src/file-store";
@@ -28,17 +28,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
   lang,
   tools,
 }) => {
-  let t: NodeJS.Timer;
-  // redux state
-  const statePath = useSelector(
-    (state: { tool: ToolState }) => state.tool.path
-  );
-  const stateFocus = useSelector(
-    (state: { tool: ToolState }) => state.tool.focus
-  );
-  const stateClick = useSelector(
-    (state: { tool: ToolState }) => state.tool.click
-  );
+  const path = data.to.replace("/", "");
   const errorMessage = useSelector(
     (state: { tool: ToolState }) => state.tool.errorMessage
   );
@@ -69,17 +59,6 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     setSubmitBtn(submitBtn);
     setDownloadBtn(downloadBtn);
     window.addEventListener("focus", () => {
-      dispatch(setFocus(true));
-      dispatch(setClick(false));
-      // if (state.click !== state.focus && (!files.length || files.length == 1)) {
-      // t = setInterval(() => {
-      validateFiles(files, data.type, errors, dispatch, {
-        path: statePath,
-        focus: stateFocus,
-        click: stateClick,
-      });
-      // }, 3000);
-      // }
       if (options.toPage === 0 && pageCount > 0) {
         dispatch(setOptions({ toPage: pageCount }));
       }
@@ -96,7 +75,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           downloadBtn,
           dispatch,
           {
-            path: statePath,
+            path,
             errorMessage,
           },
           files,
@@ -114,7 +93,6 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
         className={`upload-btn btn btn-lg text-white position-relative overflow-hidden ${data.to.replace("/", "")}`}
         onClick={(e) => {
           e.stopPropagation();
-          dispatch(setClick(true));
         }}
         role="button"
       >
@@ -146,9 +124,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           }}
           onChange={(e) => {
             handleChange(e, dispatch, setFiles, data.type, errors, files, {
-              path: statePath,
-              focus: stateFocus,
-              click: stateClick,
+              path,
             });
           }}
         />

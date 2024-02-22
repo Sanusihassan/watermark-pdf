@@ -1,19 +1,15 @@
-import { useRouter } from "next/router";
 import DisplayFile from "./DisplayFile";
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
 import Options from "./DisplayFile/Options";
 import type { edit_page } from "../content";
 import ErrorElement from "./ErrorElement";
 import type { errors as _ } from "../content";
 import { CogIcon } from "@heroicons/react/outline";
-// import { ToolStoreContext } from "../src/ToolStoreContext";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ToolState,
   resetErrorMessage,
-  setPath,
-  setShowOptions,
+  setField
 } from "../src/store";
 import { useFileStore } from "../src/file-store";
 import AddMoreButton from "./EditArea/AddMoreButton";
@@ -26,6 +22,7 @@ type editPageProps = {
   page: string;
   lang: string;
   errors: _;
+  path: string;
 };
 // the error message is inside the editPage component
 // calculate image height;
@@ -37,14 +34,12 @@ const EditPage = ({
   page,
   lang,
   errors,
+  path
 }: editPageProps) => {
   // const [showOptions, setShowOptions] = useState(false);
   // state variables:
   const errorCode = useSelector(
     (state: { tool: ToolState }) => state.tool.errorCode
-  );
-  const statePath = useSelector(
-    (state: { tool: ToolState }) => state.tool.path
   );
   const showTool = useSelector(
     (state: { tool: ToolState }) => state.tool.showTool
@@ -65,13 +60,8 @@ const EditPage = ({
     if (errorCode == "ERR_NO_FILES_SELECTED" && files.length > 0) {
       dispatch(resetErrorMessage());
     }
-    if (statePath !== k) {
-      dispatch(setPath(k));
-    }
-  }, [files, errorCode]);
 
-  const router = useRouter();
-  let k = router.asPath.replace(/^\/[a-z]{2}\//, "").replace(/^\//, "");
+  }, [files, errorCode]);
   // gearRef
   const gearRef = useRef(null);
   return (
@@ -96,25 +86,25 @@ const EditPage = ({
             }
           }}
           lang={lang}
-          path={statePath}
+          path={path}
           text={edit_page.add_more_button}
         />
         {/* when clicking on this  */}
         <button
           className="gear-button btn btn-light"
           onClick={() => {
-            dispatch(setShowOptions(!showOptions));
+            dispatch(setField({ showOptions: !showOptions }));
           }}
           ref={gearRef}
           style={
             showOptions
               ? {
-                  top:
-                    navHeight +
-                    (gearRef.current
-                      ? (gearRef.current as HTMLElement).clientHeight
-                      : 0),
-                }
+                top:
+                  navHeight +
+                  (gearRef.current
+                    ? (gearRef.current as HTMLElement).clientHeight
+                    : 0),
+              }
               : {}
           }
         >
@@ -126,8 +116,8 @@ const EditPage = ({
         style={
           showOptions
             ? {
-                top: navHeight,
-              }
+              top: navHeight,
+            }
             : {}
         }
       >
@@ -135,14 +125,19 @@ const EditPage = ({
           <bdi>
             {
               edit_page.edit_page_titles[
-                k.replace(/-/g, "_") as keyof typeof edit_page.edit_page_titles
+              path.replace(/-/g, "_") as keyof typeof edit_page.edit_page_titles
               ]
             }
           </bdi>
         </h5>
         <Options edit_page={edit_page} />
-        <SubmitBtn k={k} edit_page={edit_page} />
+        <div className="hide-onsmall">
+          <SubmitBtn k={path} edit_page={edit_page} />
+        </div>
       </section>
+      <div className="show-onsmall">
+        <SubmitBtn k={path} edit_page={edit_page} />
+      </div>
     </aside>
   );
 };

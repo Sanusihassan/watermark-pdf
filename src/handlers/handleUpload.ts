@@ -7,9 +7,7 @@ import { AnyAction } from "@reduxjs/toolkit";
 import {
   ToolState,
   resetErrorMessage,
-  setErrorMessage,
-  setIsSubmitted,
-  setShowDownloadBtn,
+  setField
 } from "../store";
 
 let prevSettings: ToolState["options"] = {
@@ -44,7 +42,7 @@ export const handleUpload = async (
   imageFile: File | null
 ) => {
   e.preventDefault();
-  dispatch(setIsSubmitted(true));
+  dispatch(setField({ isSubmitted: true }));
 
   if (!files) return;
   // Extract file names from the File[] array
@@ -60,7 +58,7 @@ export const handleUpload = async (
     files.length === filesOnSubmit.length &&
     JSON.stringify(prevSettings) === JSON.stringify(options)
   ) {
-    dispatch(setShowDownloadBtn(true));
+    dispatch(setField({ showDownloadBtn: true }));
     dispatch(resetErrorMessage());
     return;
   }
@@ -115,7 +113,7 @@ export const handleUpload = async (
     };
     const { outputFileMimeType, outputFileName } = mimeTypeData;
 
-    dispatch(setShowDownloadBtn(true));
+    dispatch(setField({ showDownloadBtn: true }));
     downloadConvertedFile(
       response,
       outputFileMimeType,
@@ -129,16 +127,16 @@ export const handleUpload = async (
       throw new Error(`HTTP error! status: ${response.status}`);
     } else {
       dispatch(resetErrorMessage());
-      dispatch(setIsSubmitted(false));
+      dispatch(setField({ isSubmitted: false }));
     }
   } catch (error) {
     if ((error as { code: string }).code === "ERR_NETWORK") {
-      dispatch(setErrorMessage(errors.ERR_NETWORK.message));
+      dispatch(setField({ errorMessage: errors.ERR_NETWORK.message }));
 
       // return;
     }
-    // dispatch(setIsSubmitted(false));
+    // dispatch(setField({ isSubmitted: false}));
   } finally {
-    dispatch(setIsSubmitted(false));
+    dispatch(setField({ isSubmitted: false }));
   }
 };

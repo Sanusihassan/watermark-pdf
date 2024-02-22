@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "react-tooltip/dist/react-tooltip.css";
-import { useRouter } from "next/router";
-import { validateFiles } from "../src/utils";
 import type { errors as _, edit_page } from "../content";
-import { useSelector, useDispatch } from "react-redux";
-import { ToolState, resetErrorMessage, setPath } from "../src/store";
+import { useDispatch } from "react-redux";
 import { useFileStore } from "../src/file-store";
 import FileCard from "./DisplayFile/FileCard";
 type propTypes = {
@@ -24,38 +21,11 @@ const DisplayFile = ({
   errors,
   edit_page,
 }: propTypes) => {
-  const [showSpinner, setShowSpinner] = useState(true);
-  const [toolTipSizes, setToolTipSizes] = useState<string[]>([]);
   // actual files
-  const { files, setImageUrls } = useFileStore();
-  // state variables:
-  const statePath = useSelector(
-    (state: { tool: ToolState }) => state.tool.path
-  );
-  const stateFocus = useSelector(
-    (state: { tool: ToolState }) => state.tool.focus
-  );
-  const stateClick = useSelector(
-    (state: { tool: ToolState }) => state.tool.click
-  );
+  const { files } = useFileStore();
   const dispatch = useDispatch();
-  // router
-  const router = useRouter();
-  let path = router.asPath.replace(/^\/[a-z]{2}\//, "").replace(/^\//, "");
 
   useEffect(() => {
-    // set the path if it's not already set
-    if (statePath == "" || statePath !== path) {
-      dispatch(setPath(path));
-    }
-    const isValid = validateFiles(files, extension, errors, dispatch, {
-      path: statePath,
-      focus: stateFocus,
-      click: stateClick,
-    });
-    if (isValid) {
-      dispatch(resetErrorMessage());
-    }
     // const max_files = 2;
     // if (state && files.length > max_files) {
     //   state?.setErrorMessage(errors.MAX_FILES_EXCEEDED.message);
