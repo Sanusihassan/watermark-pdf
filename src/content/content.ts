@@ -1,42 +1,31 @@
 export const tool = {
   Add_Watermark: {
     title: "Add Watermark",
-    seoTitle:
-      "Add Watermark to PDF Online - Customizable PDF Watermark Tool | PDFEquips",
+    seoTitle: "Add Watermark to PDF Online - Customizable PDF Watermark Tool",
     description:
       "Effortlessly apply an image or text overlay onto your PDF. Customize typography, transparency, and placement.",
+    keywords: "add watermark to PDF, PDF watermark tool, online watermark PDF, customize PDF watermark, apply text watermark, apply image watermark",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
+    features: [
+      {
+        title: "Easy Customization",
+        description: "Effortlessly customize the typography, transparency, and placement of your watermark."
+      },
+      {
+        title: "Text and Image Watermarks",
+        description: "Apply both text and image watermarks to your PDF documents."
+      },
+      {
+        title: "Secure and Fast",
+        description: "Our tool is secure and fast, ensuring your PDFs are processed quickly and kept private."
+      }
+    ]
   },
 };
-/**
- * please generate 5 objects with the same name please it's important that all of the objects you generate are of the same name "edit_page" alright?
- * for all of ar, es, fr, hi, zh respectively.
- * then all of them should be of the same type/interface i.e _edit_page.
- * meaning that each created object should followed by :_edit_page as a type because i'm using TYPESCRIPT!.
- * and i already have the _edit_page interface and it looks like this: 
- *  edit_page: {
-    edit_page_titles: {
-        add_watermark: string;
-    };
-    loader_text: string;
-    add_more_button: string;
-    action_buttons: {
-        add_watermark: string;
-    };
-    pages: string;
-    page: string;
-}
-the only thing you need to modify for each object you create is the string values just translate them for all of ar, es, fr, hi, zh respectively.
- */
-/**
- * this object's content is in english i.e the string values of the edit_page object below is in english right?
- * i want 5 similar objects of the same schema same object name same keys but translate the string values each time for ar, es, fr, hi, zh respectively
- * each object should be named the same name please this is very important, it does'nt affect my code because they would be in different files
- * also they're ts objcets and all of them should be of the type _edit_page
- * i.e the definition of each object should be somthing like: export const edit_page: _edit_page = {...}
- */
+
+
 export const edit_page = {
   edit_page_titles: {
     add_watermark: "Watermark options",
@@ -98,6 +87,13 @@ export const downloadFile = {
     "add-watermark": "Back to Add Watermark",
   },
 };
+
+export const footer = {
+  brand: "PDFEquips",
+  terms: "terms",
+  conditions: "conditions",
+  privacy_policy: "privacy policy",
+}
 
 export const errors = {
   EMPTY_FILE: {

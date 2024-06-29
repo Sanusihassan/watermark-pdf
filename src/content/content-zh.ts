@@ -12,14 +12,29 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "添加水印",
-    seoTitle: "在线给 PDF 添加水印 - 可定制的 PDF 水印工具 | PDFEquips",
-    description:
-      "轻松在您的PDF上应用图像或文本叠加。自定义字体、透明度和位置。",
+    seoTitle: "在线添加PDF水印 - 可定制的PDF水印工具",
+    description: "轻松将图像或文字覆盖应用到您的PDF。自定义字体、透明度和位置。",
+    keywords: "添加PDF水印, PDF水印工具,在线添加水印PDF,定制PDF水印,应用文字水印,应用图像水印",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
+    features: [
+      {
+        title: "轻松定制",
+        description: "轻松定制您的水印的字体、透明度和位置。"
+      },
+      {
+        title: "文字和图像水印",
+        description: "将文字和图像水印应用到您的PDF文档。"
+      },
+      {
+        title: "安全快速",
+        description: "我们的工具安全快速，确保您的PDF被快速处理并保持私密。"
+      }
+    ]
   },
 };
+
 
 export const downloadFile: _downloadFile = {
   titles: {
@@ -76,6 +91,7 @@ export const tools: _tools = {
   files: "文件",
   drop_files: "在此处拖放文件",
 };
+
 
 export const errors: _errors = {
   EMPTY_FILE: {

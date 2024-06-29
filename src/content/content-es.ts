@@ -11,16 +11,30 @@ import type {
 
 export const tool: _tool = {
   Add_Watermark: {
-    title: "Agregar marca de agua",
-    seoTitle:
-      "Añadir marca de agua a PDF en línea - Herramienta personalizable de marca de agua | PDFEquips",
-    description:
-      "Aplica fácilmente una superposición de imagen o texto en tu PDF. Personaliza tipografía, transparencia y posición.",
+    title: "Agregar Marca de Agua",
+    seoTitle: "Agregar Marca de Agua a PDF en Línea - Herramienta Personalizable de Marca de Agua para PDF",
+    description: "Aplicar fácilmente una imagen o superposición de texto a su PDF. Personalice la tipografía, la transparencia y la ubicación.",
+    keywords: "agregar marca de agua a PDF, herramienta de marca de agua para PDF, agregar marca de agua en línea, personalizar marca de agua en PDF, aplicar marca de agua de texto, aplicar marca de agua de imagen",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
+    features: [
+      {
+        title: "Personalización Fácil",
+        description: "Personalice fácilmente la tipografía, la transparencia y la ubicación de su marca de agua."
+      },
+      {
+        title: "Marcas de Agua de Texto e Imagen",
+        description: "Aplique marcas de agua de texto e imagen a sus documentos PDF."
+      },
+      {
+        title: "Seguro y Rápido",
+        description: "Nuestra herramienta es segura y rápida, garantizando que sus PDFs se procesen rápidamente y se mantengan privados."
+      }
+    ]
   },
 };
+
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
@@ -82,6 +96,13 @@ export const downloadFile: _downloadFile = {
   backto: {
     "add-watermark": "Volver a Agregar Marca de Agua",
   },
+};
+
+export const footer: _footer = {
+  brand: "PDFEquips",
+  terms: "términos",
+  conditions: "condiciones",
+  privacy_policy: "política de privacidad",
 };
 
 export const errors: _errors = {

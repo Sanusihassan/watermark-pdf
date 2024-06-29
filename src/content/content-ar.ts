@@ -11,15 +11,25 @@ import type {
 export const tool: _tool = {
   Add_Watermark: {
     title: "إضافة علامة مائية",
-    seoTitle:
-      "إضافة علامة مائية إلى ملف PDF عبر الإنترنت - أداة تعيين علامة مائية للـ PDF | PDFEquips",
-    description:
-      "ضع بسهولة صورة أو نص مرئي على ملف PDF الخاص بك. قم بتخصيص الطباعة والشفافية والموضع.",
+    seoTitle: "إضافة علامة مائية إلى PDF عبر الإنترنت - أداة تخصيص علامة مائية",
+    description: "قم بتطبيق صورة أو نص بشكل سلس على ملف PDF الخاص بك. خصص الطباعة والشفافية والمكان.",
+    keywords: "إضافة علامة مائية إلى PDF, أداة علامة مائية PDF, إضافة علامة مائية عبر الإنترنت, تخصيص علامة مائية PDF, تطبيق علامة مائية نصية, تطبيق علامة مائية صورية",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
+    features: [
+      {
+        title: "تخصيص سهل",
+        description: "تطبيق علامات مائية نصية وصورية على مستندات PDF الخاصة بك."
+      },
+      {
+        title: "آمن وسريع",
+        description: "أداتنا آمنة وسريعة، مما يضمن معالجة ملفات PDF بسرعة وبشكل خاص."
+      }
+    ]
   },
 };
+
 
 export const tools: _tools = {
   select: "اختر",
@@ -78,6 +88,13 @@ export const edit_page: _edit_page = {
     over: "فوق محتوى ملف PDF",
     below: "أسفل محتوى ملف PDF",
   },
+};
+
+export const footer: _footer = {
+  brand: "PDFEquips",
+  terms: "الشروط",
+  conditions: "والأحكام",
+  privacy_policy: "سياسة الخصوصية",
 };
 
 export const errors: _errors = {

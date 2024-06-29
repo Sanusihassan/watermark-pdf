@@ -11,16 +11,30 @@ import type {
 
 export const tool: _tool = {
   Add_Watermark: {
-    title: "Ajouter un filigrane",
-    seoTitle:
-      "Ajouter un filigrane à un PDF en ligne - Outil de filigrane PDF personnalisable | PDFEquips",
-    description:
-      "Appliquez facilement une superposition d'image ou de texte sur votre PDF. Personnalisez la typographie, la transparence et l'emplacement.",
+    title: "Ajouter un Filigrane",
+    seoTitle: "Ajouter un Filigrane à un PDF en Ligne - Outil de Filigrane Personnalisable pour PDF",
+    description: "Appliquez facilement une image ou un texte en surimpression sur votre PDF. Personnalisez la typographie, la transparence et le placement.",
+    keywords: "ajouter un filigrane à PDF, outil de filigrane PDF, ajouter filigrane en ligne, personnaliser filigrane PDF, appliquer filigrane texte, appliquer filigrane image",
     color: "#e55039",
     type: ".pdf",
     to: "/add-watermark",
+    features: [
+      {
+        title: "Personnalisation Facile",
+        description: "Personnalisez facilement la typographie, la transparence et le placement de votre filigrane."
+      },
+      {
+        title: "Filigranes Texte et Image",
+        description: "Appliquez des filigranes texte et image à vos documents PDF."
+      },
+      {
+        title: "Sécurisé et Rapide",
+        description: "Notre outil est sécurisé et rapide, garantissant que vos PDF soient traités rapidement et restent privés."
+      }
+    ]
   },
 };
+
 
 export const tools: _tools = {
   select: "Sélectionner",
@@ -82,6 +96,13 @@ export const edit_page: _edit_page = {
     over: "Sur le contenu du PDF",
     below: "Sous le contenu du PDF",
   },
+};
+
+export const footer: _footer = {
+  brand: "PDFEquips",
+  terms: "conditions",
+  conditions: "conditions d'utilisation",
+  privacy_policy: "politique de confidentialité",
 };
 
 export const errors: _errors = {
