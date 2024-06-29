@@ -54,6 +54,7 @@ export default ({ item }: { item: _tool["Add_Watermark"] }) => {
       <Head>
         <title>{item.seoTitle}</title>
         <meta name="description" content={item.description} />
+        <meta name="keywords" content={item.keywords} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

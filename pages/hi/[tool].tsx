@@ -73,6 +73,7 @@ export default ({
           }}
         />
         <meta name="description" content={item.description} />
+        <meta name="keywords" content={item.keywords} />
         <link rel="icon" type="image/svg+xml" href="/images/icons/logo.svg" />
         <OpenGraph
           ogUrl={`https://www.pdfequips.com/hi${item.to}`}
