@@ -2,26 +2,26 @@ import type { adBlockerContentType } from "./content";
 import type { edit_page as _edit_page, tool as _tool, tools as _tools, downloadFile as _downloadFile, errors as _ } from "../content";
 
 export const tool: _tool = {
-    Rotate_PDF: {
-        title: "पीडीएफ घुमाएँ",
-        seoTitle: "पीडीएफ पृष्ठ ऑनलाइन घुमाएँ - आसान पीडीएफ पृष्ठ रोटेशन",
-        description: "अपने पीडीएफ दस्तावेज़ों के पृष्ठों को आसानी से घुमाएँ और इष्टतम अभिविन्यास प्राप्त करें।",
-        keywords: "पीडीएफ घुमाएँ, पीडीएफ पृष्ठ घुमाएँ, ऑनलाइन पीडीएफ घुमाएँ, पीडीएफ अभिविन्यास समायोजित करें, पीडीएफ में पृष्ठ घुमाएँ",
-        color: "#10ac84",
+    Add_Watermark: {
+        title: "वॉटरमार्क जोड़ें",
+        seoTitle: "PDF पर वॉटरमार्क जोड़ें - कस्टमाइज़ेबल PDF वॉटरमार्क टूल",
+        description: "अपने PDF पर आसानी से छवि या टेक्स्ट ओवरले लगाएं। टाइपोग्राफी, पारदर्शिता और प्लेसमेंट को कस्टमाइज़ करें।",
+        keywords: "PDF पर वॉटरमार्क जोड़ें, PDF वॉटरमार्क टूल, ऑनलाइन वॉटरमार्क PDF, PDF वॉटरमार्क कस्टमाइज़ करें, टेक्स्ट वॉटरमार्क लगाएं, इमेज वॉटरमार्क लगाएं",
+        color: "#e55039",
         type: ".pdf",
-        to: "/rotate-pdf",
+        to: "/add-watermark",
         features: [
             {
-                title: "सरल पृष्ठ घुमाव",
-                description: "कुछ ही क्लिक में पीडीएफ पृष्ठों को वांछित अभिविन्यास में आसानी से घुमाएँ।"
+                title: "आसान कस्टमाइज़ेशन",
+                description: "अपने वॉटरमार्क की टाइपोग्राफी, पारदर्शिता और प्लेसमेंट को आसानी से कस्टमाइज़ करें।"
             },
             {
-                title: "बैच रोटेशन",
-                description: "कुशल दस्तावेज़ समायोजन के लिए एक बार में कई पृष्ठों को घुमाएँ।"
+                title: "टेक्स्ट और इमेज वॉटरमार्क",
+                description: "अपने PDF दस्तावेज़ों पर टेक्स्ट और इमेज वॉटरमार्क लगाएं।"
             },
             {
-                title: "सुरक्षित और निजी",
-                description: "आपकी फाइलें सुरक्षित रूप से प्रोसेस की जाती हैं और प्रोसेसिंग के थोड़े समय बाद हटा दी जाती हैं।"
+                title: "सुरक्षित और तेज़",
+                description: "हमारा टूल सुरक्षित और तेज़ है, यह सुनिश्चित करते हुए कि आपके PDFs को तेजी से प्रोसेस किया जाता है और गोपनीय रखा जाता है।"
             }
         ]
     }
@@ -29,22 +29,36 @@ export const tool: _tool = {
 
 export const edit_page: _edit_page = {
     edit_page_titles: {
-        rotate_pdf: "पीडीएफ विकल्प घुमाएं"
+        add_watermark: "वॉटरमार्क विकल्प"
     },
     loader_text: "कृपया प्रतीक्षा करें...",
     add_more_button: "और फ़ाइलें जोड़ें",
     action_buttons: {
-        rotate_pdf: "पीडीएफ घुमाएं"
+        add_watermark: "वॉटरमार्क जोड़ें"
     },
     pages: "पृष्ठ",
     page: "पृष्ठ",
-    rotate_pdf_options: {
-        info1: "PDF फ़ाइल पर होवर करें ताकि प्रकट हो",
-        info2: "आइकन। अपनी PDFs को घुमाने के लिए किसी भी आइकन पर क्लिक करें।",
-        left: "बाएं",
-        right: "दाएं",
-        rotation: "घुमाना",
-        reset_all: "सभी को रीसेट करें"
+    options: {
+        text_format: {
+            text: "पाठ",
+            text_format: "पाठ का प्रारूप",
+            font: "फ़ॉन्ट",
+            font_size: "फ़ॉन्ट का आकार",
+            color: "रंग",
+            font_placeholder: "फ़ॉन्ट"
+        },
+        add_image: "छवि जोड़ें",
+        change_image: "छवि बदलें",
+        position: "स्थिति",
+        mosaic: "मोज़ेक",
+        opacity: "अपारदर्शिता",
+        rotation: "रोटेशन",
+        pages: "पृष्ठ",
+        from_page: "से पृष्ठ",
+        to: "तक",
+        layer: "स्तर",
+        over: "PDF सामग्री पर",
+        below: "PDF सामग्री के नीचे"
     },
     filenameOptions: {
         label: "आउटपुट फ़ाइल का नाम (वैकल्पिक)",
@@ -56,29 +70,26 @@ export const edit_page: _edit_page = {
             cta: "अभी अपग्रेड करें",
         },
     },
-    actionContent: {
-        current: "वर्तमान",
-        info: "सकारात्मक = दक्षिणावर्त, नकारात्मक = वामावर्त",
-    }
 };
 
 export const downloadFile: _downloadFile = {
     titles: {
-        "rotate-pdf": [
-            "PDF फ़ाइलें घुमा दी गई हैं!",
-            "PDF फ़ाइल को घुमा दिया गया है!"
+        "add-watermark": [
+            "पीडीएफ़ सफलतापूर्वक डाक लगा दिए गए हैं!",
+            "पीडीएफ़ सफलतापूर्वक डाक लगा दिया गया है!"
         ]
     },
     btnText: {
-        "rotate-pdf": [
-            "घुमाए गए PDF फ़ाइलें डाउनलोड करें",
-            "घुमाए गए PDF फ़ाइल डाउनलोड करें"
+        "add-watermark": [
+            "सील किए गए पीडीएफ़ फ़ाइलें डाउनलोड करें",
+            "सील किए गए पीडीएफ़ फ़ाइल डाउनलोड करें"
         ]
     },
     backto: {
-        "rotate-pdf": "पीडीएफ घुमाने पर वापस जाएं"
+        "add-watermark": "वाटरमार्क में वापस जाएं"
     }
 };
+
 
 // Hindi (hi) - tools
 export const tools: _tools = {

@@ -2,26 +2,26 @@ import type { adBlockerContentType } from "./content";
 import type { edit_page as _edit_page, tool as _tool, tools as _tools, downloadFile as _downloadFile, errors as _ } from "../content";
 
 export const tool: _tool = {
-    Rotate_PDF: {
-        title: "Faire Pivoter PDF",
-        seoTitle: "Pivoter Pages PDF en Ligne - Rotation Facile de PDF",
-        description: "Faites pivoter facilement les pages de vos documents PDF pour obtenir l'orientation optimale.",
-        keywords: "pivoter PDF, rotation de pages PDF, pivoter PDF en ligne, ajuster l'orientation PDF, pivoter les pages de PDF",
-        color: "#10ac84",
+    Add_Watermark: {
+        title: "Ajouter un Filigrane",
+        seoTitle: "Ajouter un Filigrane à un PDF en Ligne - Outil de Filigrane Personnalisable pour PDF",
+        description: "Appliquez facilement une image ou un texte en surimpression sur votre PDF. Personnalisez la typographie, la transparence et le placement.",
+        keywords: "ajouter un filigrane à PDF, outil de filigrane PDF, ajouter filigrane en ligne, personnaliser filigrane PDF, appliquer filigrane texte, appliquer filigrane image",
+        color: "#e55039",
         type: ".pdf",
-        to: "/rotate-pdf",
+        to: "/add-watermark",
         features: [
             {
-                title: "Rotation Simple des Pages",
-                description: "Faites pivoter facilement les pages PDF à l'orientation souhaitée en quelques clics."
+                title: "Personnalisation Facile",
+                description: "Personnalisez facilement la typographie, la transparence et le placement de votre filigrane."
             },
             {
-                title: "Rotation par Lots",
-                description: "Faites pivoter plusieurs pages à la fois pour des ajustements de documents efficaces."
+                title: "Filigranes Texte et Image",
+                description: "Appliquez des filigranes texte et image à vos documents PDF."
             },
             {
-                title: "Sûr et Privé",
-                description: "Vos fichiers sont traités en toute sécurité et sont supprimés peu de temps après le traitement."
+                title: "Sécurisé et Rapide",
+                description: "Notre outil est sécurisé et rapide, garantissant que vos PDF soient traités rapidement et restent privés."
             }
         ]
     }
@@ -29,22 +29,36 @@ export const tool: _tool = {
 
 export const edit_page: _edit_page = {
     edit_page_titles: {
-        rotate_pdf: "Options de rotation de PDF"
+        add_watermark: "Options de filigrane"
     },
     loader_text: "Veuillez patienter...",
     add_more_button: "Ajouter plus de fichiers",
     action_buttons: {
-        rotate_pdf: "Rotation du PDF"
+        add_watermark: "Ajouter un filigrane"
     },
     pages: "pages",
     page: "page",
-    rotate_pdf_options: {
-        info1: "Survolez le fichier PDF pour révéler des",
-        info2: "icônes. Cliquez sur n'importe laquelle des icônes pour faire pivoter vos PDFs.",
-        left: "Gauche",
-        right: "Droite",
+    options: {
+        text_format: {
+            text: "Texte",
+            text_format: "Format du texte",
+            font: "Police",
+            font_size: "Taille de la police",
+            color: "Couleur",
+            font_placeholder: "Police"
+        },
+        add_image: "Ajouter une image",
+        change_image: "Changer l'image",
+        position: "Position",
+        mosaic: "Mosaique",
+        opacity: "Opacité",
         rotation: "Rotation",
-        reset_all: "Réinitialiser Tout"
+        pages: "Pages",
+        from_page: "De la page",
+        to: "À",
+        layer: "Couche",
+        over: "Sur le contenu du PDF",
+        below: "Sous le contenu du PDF"
     },
     filenameOptions: {
         label: "Nom du fichier de sortie (facultatif)",
@@ -56,27 +70,23 @@ export const edit_page: _edit_page = {
             cta: "Mettre à niveau maintenant",
         },
     },
-    actionContent: {
-        current: "Actuel",
-        info: "Positif = sens horaire, Négatif = sens antihoraire",
-    }
 };
 
 export const downloadFile: _downloadFile = {
     titles: {
-        "rotate-pdf": [
-            "Les fichiers PDF ont été tournés !",
-            "Le fichier PDF a été tourné !"
+        "add-watermark": [
+            "Les PDF ont été estampillés avec succès !",
+            "Le PDF a été estampillé avec succès !"
         ]
     },
     btnText: {
-        "rotate-pdf": [
-            "Télécharger les fichiers PDF tournés",
-            "Télécharger le fichier PDF tourné"
+        "add-watermark": [
+            "Télécharger les fichiers PDF estampillés",
+            "Télécharger le fichier PDF estampillé"
         ]
     },
     backto: {
-        "rotate-pdf": "Retour à la rotation du PDF"
+        "add-watermark": "Retour à Ajouter un Filigrane"
     }
 };
 

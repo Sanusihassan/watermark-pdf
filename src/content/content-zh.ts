@@ -2,26 +2,26 @@ import type { edit_page as _edit_page, tool as _tool, tools as _tools, downloadF
 import type { adBlockerContentType } from "./content";
 
 export const tool: _tool = {
-    Rotate_PDF: {
-        title: "旋转 PDF",
-        seoTitle: "在线旋转 PDF 页 - 简单的 PDF 页旋转",
-        description: "轻松旋转 PDF 文档中的页面，以达到最佳方向。",
-        keywords: "旋转 PDF, PDF 页面旋转, 在线旋转 PDF, 调整 PDF 方向, 旋转 PDF 页",
-        color: "#10ac84",
+    Add_Watermark: {
+        title: "添加水印",
+        seoTitle: "在线添加PDF水印 - 可定制的PDF水印工具",
+        description: "轻松将图像或文字覆盖应用到您的PDF。自定义字体、透明度和位置。",
+        keywords: "添加PDF水印, PDF水印工具,在线添加水印PDF,定制PDF水印,应用文字水印,应用图像水印",
+        color: "#e55039",
         type: ".pdf",
-        to: "/rotate-pdf",
+        to: "/add-watermark",
         features: [
             {
-                title: "简单的页面旋转",
-                description: "只需几次点击即可轻松将 PDF 页面旋转到所需方向。"
+                title: "轻松定制",
+                description: "轻松定制您的水印的字体、透明度和位置。"
             },
             {
-                title: "批量旋转",
-                description: "一次旋转多个页面，实现高效的文档调整。"
+                title: "文字和图像水印",
+                description: "将文字和图像水印应用到您的PDF文档。"
             },
             {
-                title: "安全且私密",
-                description: "您的文件会被安全处理，并在处理后不久被删除。"
+                title: "安全快速",
+                description: "我们的工具安全快速，确保您的PDF被快速处理并保持私密。"
             }
         ]
     }
@@ -29,22 +29,36 @@ export const tool: _tool = {
 
 export const edit_page: _edit_page = {
     edit_page_titles: {
-        rotate_pdf: "旋转PDF选项"
+        add_watermark: "水印选项"
     },
     loader_text: "请稍候...",
     add_more_button: "添加更多文件",
     action_buttons: {
-        rotate_pdf: "旋转PDF"
+        add_watermark: "添加水印"
     },
     pages: "页",
     page: "页",
-    rotate_pdf_options: {
-        info1: "将鼠标悬停在 PDF 文件上以显示",
-        info2: "图标。单击任何图标以旋转您的 PDFs。",
-        left: "左",
-        right: "右",
+    options: {
+        text_format: {
+            text: "文本",
+            text_format: "文本格式",
+            font: "字体",
+            font_size: "字体大小",
+            color: "颜色",
+            font_placeholder: "字体"
+        },
+        add_image: "添加图片",
+        change_image: "更改图片",
+        position: "位置",
+        mosaic: "马赛克",
+        opacity: "不透明度",
         rotation: "旋转",
-        reset_all: "重置所有"
+        pages: "页数",
+        from_page: "从页面",
+        to: "至",
+        layer: "图层",
+        over: "覆盖PDF内容",
+        below: "在PDF内容下方"
     },
     filenameOptions: {
         label: "输出文件名（可选）",
@@ -56,27 +70,23 @@ export const edit_page: _edit_page = {
             cta: "立即升级",
         },
     },
-    actionContent: {
-        current: "当前",
-        info: "正 = 顺时针，负 = 逆时针",
-    }
 };
 
 export const downloadFile: _downloadFile = {
     titles: {
-        "rotate-pdf": [
-            "PDF文件已旋转！",
-            "PDF文件已旋转！"
+        "add-watermark": [
+            "PDF 已成功加盖印章！",
+            "PDF 已成功加盖印章！"
         ]
     },
     btnText: {
-        "rotate-pdf": [
-            "下载旋转后的PDF文件",
-            "下载旋转后的PDF文件"
+        "add-watermark": [
+            "下载已盖章的 PDF 文件",
+            "下载已盖章的 PDF 文件"
         ]
     },
     backto: {
-        "rotate-pdf": "返回旋转PDF"
+        "add-watermark": "返回至添加水印"
     }
 };
 

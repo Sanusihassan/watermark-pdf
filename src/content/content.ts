@@ -1,24 +1,24 @@
 export const tool = {
-  Rotate_PDF: {
-    title: "Rotate PDF",
-    seoTitle: "Rotate PDF Pages Online - Easy PDF Page Rotation",
-    description: "Easily rotate pages within your PDF documents to achieve optimal orientation.",
-    keywords: "rotate PDF, PDF page rotation, rotate PDF online, adjust PDF orientation, rotate pages in PDF",
-    color: "#10ac84",
+  Add_Watermark: {
+    title: "Add Watermark",
+    seoTitle: "Add Watermark to PDF Online - Customizable PDF Watermark Tool",
+    description: "Effortlessly apply an image or text overlay onto your PDF. Customize typography, transparency, and placement.",
+    keywords: "add watermark to PDF, PDF watermark tool, online watermark PDF, customize PDF watermark, apply text watermark, apply image watermark",
+    color: "#e55039",
     type: ".pdf",
-    to: "/rotate-pdf",
+    to: "/add-watermark",
     features: [
       {
-        title: "Simple Page Rotation",
-        description: "Easily rotate PDF pages to the desired orientation with just a few clicks."
+        title: "Easy Customization",
+        description: "Effortlessly customize the typography, transparency, and placement of your watermark."
       },
       {
-        title: "Batch Rotation",
-        description: "Rotate multiple pages at once for efficient document adjustments."
+        title: "Text and Image Watermarks",
+        description: "Apply both text and image watermarks to your PDF documents."
       },
       {
-        title: "Secure and Private",
-        description: "Your files are processed securely and are deleted shortly after processing."
+        title: "Secure and Fast",
+        description: "Our tool is secure and fast, ensuring your PDFs are processed quickly and kept private."
       }
     ]
   }
@@ -26,22 +26,36 @@ export const tool = {
 
 export const edit_page = {
   edit_page_titles: {
-    rotate_pdf: "Rotate PDF options"
+    add_watermark: "Watermark options"
   },
   loader_text: "please wait...",
   add_more_button: "Add more files",
   action_buttons: {
-    rotate_pdf: "Rotate PDF"
+    add_watermark: "Add Watermark"
   },
   pages: "pages",
   page: "page",
-  rotate_pdf_options: {
-    info1: "Hover over the PDF file to reveal a",
-    info2: "icons. Click any of the icons to rotate your PDFs.",
-    left: "Left",
-    right: "Right",
+  options: {
+    text_format: {
+      text: "Text",
+      text_format: "Text format",
+      font: "font",
+      font_size: "font size",
+      color: "color",
+      font_placeholder: "font"
+    },
+    add_image: "Add Image",
+    change_image: "Change Image",
+    position: "Position",
+    mosaic: "Mosaic",
+    opacity: "Opacity",
     rotation: "Rotation",
-    reset_all: "Reset All"
+    pages: "Pages",
+    from_page: "From Page",
+    to: "To",
+    layer: "Layer",
+    over: "Over the PDF content",
+    below: "Below the PDF content"
   },
   filenameOptions: {
     label: "Output File Name (Optional)",
@@ -53,27 +67,23 @@ export const edit_page = {
       cta: "Upgrade now",
     },
   },
-  actionContent: {
-    current: "Current",
-    info: "Positive = clockwise, Negative = counter-clockwise",
-  }
 };
 
 export const downloadFile = {
   titles: {
-    "rotate-pdf": [
-      "PDF files have been rotated!",
-      "PDF file has been rotated!"
+    "add-watermark": [
+      "The PDFs have been stamped successfully!",
+      "The PDF has been stamped successfully!"
     ]
   },
   btnText: {
-    "rotate-pdf": [
-      "Download Rotated PDF files",
-      "Download Rotated PDF file"
+    "add-watermark": [
+      "Download Stamped PDF files",
+      "Download Stamped PDF file"
     ]
   },
   backto: {
-    "rotate-pdf": "Back To Rotate PDF"
+    "add-watermark": "Back to Add Watermark"
   }
 };
 export type ToolType = {

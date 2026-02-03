@@ -2,26 +2,26 @@ import type { edit_page as _edit_page, tool as _tool, tools as _tools, downloadF
 import type { adBlockerContentType } from "./content";
 
 export const tool: _tool = {
-  Rotate_PDF: {
-    title: "Rotar PDF",
-    seoTitle: "Rotar Páginas PDF en Línea - Fácil Rotación de PDF",
-    description: "Gira fácilmente las páginas de tus documentos PDF para lograr la orientación óptima.",
-    keywords: "rotar PDF, rotación de páginas PDF, rotar PDF en línea, ajustar orientación de PDF, rotar páginas en PDF",
-    color: "#10ac84",
+  Add_Watermark: {
+    title: "Agregar Marca de Agua",
+    seoTitle: "Agregar Marca de Agua a PDF en Línea - Herramienta Personalizable de Marca de Agua para PDF",
+    description: "Aplicar fácilmente una imagen o superposición de texto a su PDF. Personalice la tipografía, la transparencia y la ubicación.",
+    keywords: "agregar marca de agua a PDF, herramienta de marca de agua para PDF, agregar marca de agua en línea, personalizar marca de agua en PDF, aplicar marca de agua de texto, aplicar marca de agua de imagen",
+    color: "#e55039",
     type: ".pdf",
-    to: "/rotate-pdf",
+    to: "/add-watermark",
     features: [
       {
-        title: "Rotación de Páginas Simple",
-        description: "Gira fácilmente las páginas de PDF a la orientación deseada con solo unos pocos clics."
+        title: "Personalización Fácil",
+        description: "Personalice fácilmente la tipografía, la transparencia y la ubicación de su marca de agua."
       },
       {
-        title: "Rotación en Lote",
-        description: "Gira múltiples páginas a la vez para ajustes eficientes de documentos."
+        title: "Marcas de Agua de Texto e Imagen",
+        description: "Aplique marcas de agua de texto e imagen a sus documentos PDF."
       },
       {
-        title: "Seguro y Privado",
-        description: "Tus archivos se procesan de manera segura y se eliminan poco después de la procesamiento."
+        title: "Seguro y Rápido",
+        description: "Nuestra herramienta es segura y rápida, garantizando que sus PDFs se procesen rápidamente y se mantengan privados."
       }
     ]
   }
@@ -29,22 +29,36 @@ export const tool: _tool = {
 
 export const edit_page: _edit_page = {
   edit_page_titles: {
-    rotate_pdf: "Opciones para Rotar PDF"
+    add_watermark: "Opciones de marca de agua"
   },
-  loader_text: "Por favor, espera...",
+  loader_text: "Por favor espera...",
   add_more_button: "Agregar más archivos",
   action_buttons: {
-    rotate_pdf: "Rotar PDF"
+    add_watermark: "Agregar marca de agua"
   },
   pages: "páginas",
   page: "página",
-  rotate_pdf_options: {
-    info1: "Pasa el cursor sobre el archivo PDF para revelar",
-    info2: "iconos. Haz clic en cualquiera de los iconos para rotar tus PDFs.",
-    left: "Izquierda",
-    right: "Derecha",
+  options: {
+    text_format: {
+      text: "Texto",
+      text_format: "Formato de texto",
+      font: "Fuente",
+      font_size: "Tamaño de fuente",
+      color: "Color",
+      font_placeholder: "Fuente"
+    },
+    add_image: "Agregar imagen",
+    change_image: "Cambiar imagen",
+    position: "Posición",
+    mosaic: "Mosaico",
+    opacity: "Opacidad",
     rotation: "Rotación",
-    reset_all: "Restablecer Todo"
+    pages: "Páginas",
+    from_page: "Desde la página",
+    to: "A",
+    layer: "Capa",
+    over: "Sobre el contenido del PDF",
+    below: "Debajo del contenido del PDF"
   },
   filenameOptions: {
     label: "Nombre del archivo de salida (opcional)",
@@ -56,29 +70,26 @@ export const edit_page: _edit_page = {
       cta: "Actualizar ahora",
     },
   },
-  actionContent: {
-    current: "Actual",
-    info: "Positivo = en sentido horario, Negativo = en sentido antihorario",
-  }
 };
 
 export const downloadFile: _downloadFile = {
   titles: {
-    "rotate-pdf": [
-      "¡Los archivos PDF han sido rotados!",
-      "¡El archivo PDF ha sido rotado!"
+    "add-watermark": [
+      "¡Los PDF han sido sellados exitosamente!",
+      "¡El PDF ha sido sellado exitosamente!"
     ]
   },
   btnText: {
-    "rotate-pdf": [
-      "Descargar archivos PDF rotados",
-      "Descargar archivo PDF rotado"
+    "add-watermark": [
+      "Descargar archivos PDF sellados",
+      "Descargar archivo PDF sellado"
     ]
   },
   backto: {
-    "rotate-pdf": "Volver a Rotar PDF"
+    "add-watermark": "Volver a Agregar Marca de Agua"
   }
 };
+
 
 export const tools: _tools = {
   select: "Seleccionar",

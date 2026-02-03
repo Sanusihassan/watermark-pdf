@@ -1,27 +1,24 @@
 import type { tool as _tool, tools as _tools, edit_page as _edit_page, downloadFile as _downloadFile, errors as _errors } from "../content";
 import type { adBlockerContentType } from "./content";
 
+
 export const tool: _tool = {
-    Rotate_PDF: {
-        title: "تدوير PDF",
-        seoTitle: "تدوير صفحات PDF عبر الإنترنت - تدوير صفحات PDF بسهولة",
-        description: "قم بتدوير صفحات مستندات PDF الخاصة بك بسهولة لتحقيق الاتجاه الأمثل.",
-        keywords: "تدوير PDF, تدوير صفحات PDF, تدوير PDF عبر الإنترنت, ضبط اتجاه PDF, تدوير صفحات PDF بسهولة",
-        color: "#10ac84",
+    Add_Watermark: {
+        title: "إضافة علامة مائية",
+        seoTitle: "إضافة علامة مائية إلى PDF عبر الإنترنت - أداة تخصيص علامة مائية",
+        description: "قم بتطبيق صورة أو نص بشكل سلس على ملف PDF الخاص بك. خصص الطباعة والشفافية والمكان.",
+        keywords: "إضافة علامة مائية إلى PDF, أداة علامة مائية PDF, إضافة علامة مائية عبر الإنترنت, تخصيص علامة مائية PDF, تطبيق علامة مائية نصية, تطبيق علامة مائية صورية",
+        color: "#e55039",
         type: ".pdf",
-        to: "/rotate-pdf",
+        to: "/add-watermark",
         features: [
             {
-                title: "تدوير الصفحات بسهولة",
-                description: "قم بتدوير صفحات PDF بسهولة إلى الاتجاه المطلوب ببضع نقرات فقط."
+                title: "تخصيص سهل",
+                description: "تطبيق علامات مائية نصية وصورية على مستندات PDF الخاصة بك."
             },
             {
-                title: "تدوير الدفعات",
-                description: "قم بتدوير صفحات متعددة في وقت واحد لتعديلات المستند الفعالة."
-            },
-            {
-                title: "آمن وخاص",
-                description: "يتم معالجة ملفاتك بأمان ويتم حذفها بعد وقت قصير من المعالجة."
+                title: "آمن وسريع",
+                description: "أداتنا آمنة وسريعة، مما يضمن معالجة ملفات PDF بسرعة وبشكل خاص."
             }
         ]
     }
@@ -29,22 +26,36 @@ export const tool: _tool = {
 
 export const edit_page: _edit_page = {
     edit_page_titles: {
-        rotate_pdf: "خيارات تدوير ملف PDF"
+        add_watermark: "خيارات العلامة المائية"
     },
     loader_text: "يرجى الانتظار...",
-    add_more_button: "إضافة المزيد من الملفات",
+    add_more_button: "إضافة ملفات أخرى",
     action_buttons: {
-        rotate_pdf: "تدوير ملف PDF"
+        add_watermark: "إضافة علامة مائية"
     },
     pages: "صفحات",
-    page: "صفحة واحدة",
-    rotate_pdf_options: {
-        info1: "حرك الماوس فوق ملف PDF لكشف",
-        info2: "الأيقونات. انقر على أي من الأيقونات لتدوير ملفات PDF الخاصة بك.",
-        rotation: "التدوير",
-        left: "يسار",
-        right: "يمين",
-        reset_all: "إعادة تعيين الكل"
+    page: "صفحة",
+    options: {
+        text_format: {
+            text: "النص",
+            text_format: "تنسيق النص",
+            font: "الخط",
+            font_size: "حجم الخط",
+            color: "اللون",
+            font_placeholder: "الخط"
+        },
+        add_image: "إضافة صورة",
+        change_image: "تغيير الصورة",
+        position: "الموضع",
+        mosaic: "الفسيفساء",
+        opacity: "الشفافية",
+        rotation: "الدوران",
+        pages: "الصفحات",
+        from_page: "من الصفحة",
+        to: "إلى",
+        layer: "الطبقة",
+        over: "فوق محتوى ملف PDF",
+        below: "أسفل محتوى ملف PDF"
     },
     filenameOptions: {
         label: "اسم الملف الناتج (اختياري)",
@@ -56,27 +67,23 @@ export const edit_page: _edit_page = {
             cta: "الترقية الآن",
         },
     },
-    actionContent: {
-        current: "الحالي",
-        info: "إيجابي = في اتجاه عقارب الساعة، سلبي = عكس اتجاه عقارب الساعة",
-    }
 };
 
 export const downloadFile: _downloadFile = {
     titles: {
-        "rotate-pdf": [
-            "تم تدوير ملفات PDF!",
-            "تم تدوير ملف PDF!"
+        "add-watermark": [
+            "تم وضع الطوابع على ملفات PDF بنجاح!",
+            "تم وضع الطابع على ملف PDF بنجاح!"
         ]
     },
     btnText: {
-        "rotate-pdf": [
-            "تنزيل ملفات PDF المدوّرة",
-            "تنزيل ملف PDF المدوّر"
+        "add-watermark": [
+            "تحميل ملفات PDF المختومة",
+            "تحميل ملف PDF المختوم"
         ]
     },
     backto: {
-        "rotate-pdf": "العودة إلى تدوير ملف PDF"
+        "add-watermark": "العودة إلى إضافة العلامة المائية"
     }
 };
 
