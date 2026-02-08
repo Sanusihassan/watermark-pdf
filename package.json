@@ -25,6 +25,7 @@
     "pdfjs-dist": "^4.9.155",
     "react": "^19.2.4",
     "react-bootstrap": "^2.10.6",
+    "react-colorful": "^5.6.1",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.4",
     "react-dropzone": "^14.3.5",

@@ -36,26 +36,38 @@ export const edit_page = {
   pages: "pages",
   page: "page",
   options: {
-    text_format: {
-      text: "Text",
-      text_format: "Text format",
-      font: "font",
-      font_size: "font size",
-      color: "color",
-      font_placeholder: "font"
-    },
-    add_image: "Add Image",
-    change_image: "Change Image",
+    watermark_type: "Watermark Type",
+    place_text: "Place Text",
+    place_image: "Place Image",
+    text_input: "Text",
+    image_upload: "Upload Image",
+    select_image: "Click to select an image",
+    text_format: "Text Format",
+    font: "Font",
+    font_size: "Font Size",
+    color: "Color",
     position: "Position",
-    mosaic: "Mosaic",
+    mosaic: "Mosaic (Repeat across page)",
     opacity: "Opacity",
     rotation: "Rotation",
     pages: "Pages",
-    from_page: "From Page",
-    to: "To",
+    from_page: "From",
+    to_page: "To",
     layer: "Layer",
-    over: "Over the PDF content",
-    below: "Below the PDF content"
+    over_content: "Over PDF content",
+    below_content: "Below PDF content",
+    // ✅ New validation messages
+    invalid_image_type: "Please select a valid image file",
+    image_too_large: "Image is too large. Maximum size is 5MB",
+    max_5mb: "Max 5MB, recommended 1MB or less",
+  },
+
+  fileCard: {
+    page: "Page",
+    pages: "Pages",
+    remove_file: "Remove file",
+    loading: "Loading",
+    preview: "Preview",
   },
   filenameOptions: {
     label: "Output File Name (Optional)",
@@ -99,7 +111,7 @@ export type ToolType = {
     description: string;
   }[];
 }
-export type Paths = "rotate-pdf";
+export type Paths = "add-watermark";
 
 export const tools = {
   select: "Select",
@@ -217,10 +229,19 @@ export const errors = {
     // Settings errors
     invalidSettings: "Invalid settings provided. Please refresh and try again.",
     conversionFailed: "Conversion failed. Please try again.",
-    // please do the same for these:
-    noRotationsProvided: "Please specify rotation for at least one file",
-    rotationFailed: "Failed to rotate PDF. Please try again.",
-    invalidRotationAngle: "Invalid rotation angle. Use 90, 180, or 270 degrees."
+
+    noWatermarkText: "Please enter watermark text",
+    noWatermarkImage: "Please upload a watermark image",
+    invalidPageRange: "Invalid page range",
+    watermarkFailed: "Failed to add watermark. Please try again.",
+    noWatermarkSettings: "Please configure watermark settings",
+    invalidWatermarkImage: "Invalid watermark image format",
+    pageOutOfRange: "Page number exceeds PDF page count",
+    invalidPosition: "Invalid watermark position",
+    invalidOpacity: "Invalid opacity value (0-100)",
+    invalidRotation: "Invalid rotation value (0-360)",
+    invalidFontSize: "Invalid font size",
+    invalidWatermarkSettings: "Invalid watermark settings format",
   },
 };
 

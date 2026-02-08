@@ -38,27 +38,40 @@ export const edit_page: _edit_page = {
   },
   pages: "páginas",
   page: "página",
+
   options: {
-    text_format: {
-      text: "Texto",
-      text_format: "Formato de texto",
-      font: "Fuente",
-      font_size: "Tamaño de fuente",
-      color: "Color",
-      font_placeholder: "Fuente"
-    },
-    add_image: "Agregar imagen",
-    change_image: "Cambiar imagen",
+    watermark_type: "Tipo de marca de agua",
+    place_text: "Colocar texto",
+    place_image: "Colocar imagen",
+    text_input: "Texto",
+    image_upload: "Subir imagen",
+    select_image: "Haz clic para seleccionar una imagen",
+    text_format: "Formato de texto",
+    font: "Fuente",
+    font_size: "Tamaño de fuente",
+    color: "Color",
     position: "Posición",
-    mosaic: "Mosaico",
+    mosaic: "Mosaico (Repetir en la página)",
     opacity: "Opacidad",
     rotation: "Rotación",
     pages: "Páginas",
-    from_page: "Desde la página",
-    to: "A",
+    from_page: "Desde",
+    to_page: "Hasta",
     layer: "Capa",
-    over: "Sobre el contenido del PDF",
-    below: "Debajo del contenido del PDF"
+    over_content: "Sobre el contenido PDF",
+    below_content: "Debajo del contenido PDF",
+    // ✅ New validation messages
+    invalid_image_type: "Por favor seleccione un archivo de imagen válido",
+    image_too_large: "La imagen es demasiado grande. Tamaño máximo 5MB",
+    max_5mb: "Máx 5MB, recomendado 1MB o menos",
+  },
+
+  fileCard: {
+    page: "Página",
+    pages: "Páginas",
+    remove_file: "Eliminar archivo",
+    loading: "Cargando",
+    preview: "Vista previa",
   },
   filenameOptions: {
     label: "Nombre del archivo de salida (opcional)",
@@ -210,9 +223,19 @@ export const errors: _errors = {
     // Settings errors
     invalidSettings: "Configuraciones inválidas proporcionadas. Por favor, actualiza e inténtalo de nuevo.",
     conversionFailed: "Conversión fallida. Por favor, inténtalo de nuevo.",
-    noRotationsProvided: "Por favor, especifique la rotación para al menos un archivo",
-    rotationFailed: "Fallo al rotar el PDF. Por favor, inténtelo de nuevo.",
-    invalidRotationAngle: "Ángulo de rotación inválido. Use 90, 180 o 270 grados."
+    noWatermarkText: "Por favor ingrese el texto de la marca de agua",
+    noWatermarkImage: "Por favor suba una imagen de marca de agua",
+    invalidPageRange: "Rango de páginas no válido",
+    watermarkFailed: "Error al agregar marca de agua. Inténtalo de nuevo.",
+
+    noWatermarkSettings: "Por favor configure las opciones de marca de agua",
+    invalidWatermarkSettings: "Formato de configuración de marca de agua no válido",
+    invalidWatermarkImage: "Formato de imagen de marca de agua no válido",
+    pageOutOfRange: "El número de página excede el conteo de páginas del PDF",
+    invalidPosition: "Posición de marca de agua no válida",
+    invalidOpacity: "Valor de opacidad no válido (0-100)",
+    invalidRotation: "Valor de rotación no válido (0-360)",
+    invalidFontSize: "Tamaño de fuente no válido",
   },
 };
 

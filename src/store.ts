@@ -6,6 +6,21 @@ type WritableDraft<T> = {
 
 type k = keyof WritableDraft<ToolState>;
 
+export interface WatermarkSettings {
+  type: "text" | "image";
+  text: string;
+  font: string;
+  fontSize: number;
+  color: string;
+  position: number; // 0-8 (grid position)
+  mosaic: boolean;
+  opacity: number; // 0-100
+  rotation: number; // 0-360
+  fromPage: number;
+  toPage: number;
+  layer: "over" | "below";
+}
+
 export interface ToolState {
   showTool: boolean;
   isSubmitted: boolean;
@@ -20,6 +35,9 @@ export interface ToolState {
   subscriptionStatus: boolean | null;
   isAdBlocked: boolean;
   ocr_warning: string;
+  watermarkSettings: WatermarkSettings;
+  pageCount: number;
+  selectedFile: string
 }
 
 const initialState: ToolState = {
@@ -36,6 +54,22 @@ const initialState: ToolState = {
   subscriptionStatus: null,
   isAdBlocked: false,
   ocr_warning: "",
+  watermarkSettings: {
+    type: "text",
+    text: "PDFEquips",
+    font: "Arial",
+    fontSize: 36,
+    color: "#000000",
+    position: 4, // Center
+    mosaic: false,
+    opacity: .5,
+    rotation: 0,
+    fromPage: 1,
+    toPage: 1,
+    layer: "over",
+  },
+  pageCount: 0,
+  selectedFile: ""
 };
 
 const toolSlice = createSlice({

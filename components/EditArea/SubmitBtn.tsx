@@ -36,9 +36,7 @@ export function SubmitBtn({
   );
   const isAdBlocked =
     process.env.NODE_ENV === "development" ? false : isAdBlockedState;
-  useEffect(() => {
-    console.log("errorMessage", errorMessage);
-  }, []);
+  useEffect(() => {}, []);
   return (
     <button
       className={`submit-btn ${k}`}

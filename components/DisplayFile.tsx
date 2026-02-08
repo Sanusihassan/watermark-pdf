@@ -24,26 +24,15 @@ const DisplayFile = ({
   drop_files,
   path,
 }: propTypes) => {
-  const [toolTipSizes, setToolTipSizes] = useState<string[]>([]);
-
   useEffect(() => {}, [extension]);
 
   return (
     <>
       <Files
         errors={errors}
-        extension={extension}
-        setToolTipSizes={setToolTipSizes}
-        toolTipSizes={toolTipSizes}
-        loader_text={edit_page.loader_text}
-        fileDetailProps={[pages, page, lang]}
         drop_files={drop_files}
         path={path}
-        languageSelectProps={{
-          content: edit_page.filenameOptions,
-          themeColor: `var(--${path})`,
-        }}
-        actionContent={edit_page.actionContent}
+        fileCard={edit_page.fileCard}
       />
     </>
   );
