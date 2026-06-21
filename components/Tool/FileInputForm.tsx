@@ -45,7 +45,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
     files,
     setFiles,
     setFileInput,
-    setDownloadBtn,
+    setDownloadBlob,
     setSubmitBtn,
     watermarkImage,
   } = useFileStore();
@@ -53,17 +53,30 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
   // refs
   const fileInput = useRef<HTMLInputElement>(null);
   const submitBtn = useRef<HTMLButtonElement>(null);
-  const downloadBtn = useRef<HTMLAnchorElement>(null);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
+    const setupRefs = () => {
+      setLoaded(true);
+      setFileInput(fileInput);
+      setSubmitBtn(submitBtn);
+    };
+
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(setupRefs, { timeout: 3000 });
+      return () => cancelIdleCallback(id);
+    } else {
+      // Fallback for older browsers
+      if (document.readyState === "complete") {
+        setupRefs();
+      } else {
+        document.addEventListener("DOMContentLoaded", setupRefs, {
+          once: true,
+        });
+        return () =>
+          document.removeEventListener("DOMContentLoaded", setupRefs);
+      }
     }
-    setLoaded(true);
-    setFileInput(fileInput);
-    setSubmitBtn(submitBtn);
-    setDownloadBtn(downloadBtn);
-  }, []);
+  }, [setFileInput, setSubmitBtn]);
   return (
     <form
       onClick={(e) => {
@@ -72,7 +85,6 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
       onSubmit={(e) =>
         handleUpload(
           e,
-          downloadBtn,
           dispatch,
           {
             path,
@@ -83,6 +95,7 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           files,
           watermarkImage,
           errors,
+          setDownloadBlob,
         )
       }
       method="POST"
@@ -128,12 +141,6 @@ export const FileInputForm: React.FC<FileInputFormProps> = ({
           disabled={!loaded}
         />
       </div>
-      <a
-        href=""
-        className="d-none"
-        ref={downloadBtn}
-        download="__output.pdf"
-      ></a>
       {/* <div className="my-4">
           </div> */}
       <button type="submit" ref={submitBtn} className="d-none">
