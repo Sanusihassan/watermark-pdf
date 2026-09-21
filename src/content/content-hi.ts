@@ -100,6 +100,32 @@ export const downloadFile: _downloadFile = {
     },
     backto: {
         "add-watermark": "वाटरमार्क में वापस जाएं"
+    },
+    shareOverlayExtra: {
+        copiedText: "कॉपी किया गया",
+        copy_link: "लिंक कॉपी करें",
+    },
+    premiumToast: {
+        variants: [
+            {
+                message: "बेहतर परिणाम चाहते हैं? बेहतर फॉर्मेटिंग और सटीकता के लिए Premium आज़माएं!",
+                actionButton: "Premium आज़माएं",
+            },
+            {
+                message: "विज्ञापन-मुक्त अनुभव पसंद करते हैं? Premium विज्ञापनों को पूरी तरह से हटा देता है।",
+                actionButton: "Premium प्राप्त करें",
+            },
+        ],
+    },
+    shareOverlay: {
+        "add-watermark": {
+            modalTitles: ["उत्साह साझा करें!", "बात फैलाएं!", "साथ मिलकर हम बदलाव ला सकते हैं!"],
+            modalDescription:
+                "दस्तावेज़ भेजने से पहले हर पृष्ठ पर लोगो, नाम या 'ड्राफ़्ट' लेबल की मोहर लगाना।",
+            shareText:
+                "PDF के प्रत्येक पृष्ठ पर टेक्स्ट या इमेज वॉटरमार्क जोड़ता है, जिससे वॉटरमार्क वाली एक नई प्रति बनती है।",
+            url: "https://www.pdfequips.com/add-watermark",
+        },
     }
 };
 

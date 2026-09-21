@@ -99,6 +99,32 @@ export const downloadFile: _downloadFile = {
     },
     backto: {
         "add-watermark": "Retour à Ajouter un Filigrane"
+    },
+    shareOverlayExtra: {
+        copiedText: "Copié",
+        copy_link: "Copier le lien",
+    },
+    premiumToast: {
+        variants: [
+            {
+                message: "Vous voulez de meilleurs résultats ? Essayez Premium pour un formatage et une précision supérieurs !",
+                actionButton: "Essayer Premium",
+            },
+            {
+                message: "Vous préférez une expérience sans publicité ? Premium supprime entièrement les publicités.",
+                actionButton: "Passer à Premium",
+            },
+        ],
+    },
+    shareOverlay: {
+        "add-watermark": {
+            modalTitles: ["Partagez l'enthousiasme !", "Passez le mot !", "Ensemble, nous pouvons faire la différence !"],
+            modalDescription:
+                "Apposer un logo, un nom ou la mention « brouillon » sur chaque page avant la diffusion d'un document.",
+            shareText:
+                "Ajoute un filigrane de texte ou d'image sur chaque page d'un PDF, générant une nouvelle copie filigranée.",
+            url: "https://www.pdfequips.com/add-watermark",
+        },
     }
 };
 

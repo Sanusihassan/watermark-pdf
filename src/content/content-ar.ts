@@ -96,6 +96,32 @@ export const downloadFile: _downloadFile = {
     },
     backto: {
         "add-watermark": "العودة إلى إضافة العلامة المائية"
+    },
+    premiumToast: {
+        variants: [
+            {
+                message: "هل تريد نتائج أفضل؟ جرب Premium للحصول على دقة وتنسيق ممتازين!",
+                actionButton: "جرب Premium",
+            },
+            {
+                message: "هل تفضل تجربة خالية من الإعلانات؟ Premium يزيل الإعلانات تمامًا.",
+                actionButton: "احصل على Premium",
+            },
+        ],
+    },
+    shareOverlayExtra: {
+        copiedText: "تم النسخ",
+        copy_link: "نسخ الرابط",
+    },
+    shareOverlay: {
+        "add-watermark": {
+            modalTitles: ["شاركنا الحماس!", "انشر الخبر!", "معًا يمكننا إحداث تأثير!"],
+            modalDescription:
+                "طباعة شعار أو اسم أو علامة \"مسودة\" على كل صفحة قبل إرسال المستند.",
+            shareText:
+                "يضيف علامة مائية نصية أو صورية عبر كل صفحة من صفحات ملف PDF، لينتج نسخة جديدة تحتوي على العلامة المائية.",
+            url: "https://www.pdfequips.com/add-watermark",
+        },
     }
 };
 

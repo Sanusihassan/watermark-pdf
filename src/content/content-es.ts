@@ -100,6 +100,32 @@ export const downloadFile: _downloadFile = {
   },
   backto: {
     "add-watermark": "Volver a Agregar Marca de Agua"
+  },
+  shareOverlayExtra: {
+    copiedText: "Copiado",
+    copy_link: "Copiar enlace",
+  },
+  premiumToast: {
+    variants: [
+      {
+        message: "¡¿Quieres mejores resultados?! Prueba Premium para obtener mayor formato y precisión.",
+        actionButton: "Probar Premium",
+      },
+      {
+        message: "¿Prefieres una experiencia sin anuncios? Premium elimina los anuncios por completo.",
+        actionButton: "Obtener Premium",
+      },
+    ],
+  },
+  shareOverlay: {
+    "add-watermark": {
+      modalTitles: ["¡Comparte el entusiasmo!", "¡Pasa la voz!", "¡Juntos podemos marcar la diferencia!"],
+      modalDescription:
+        "Estampa un logotipo, nombre o la etiqueta 'borrador' en cada página antes de compartir el documento.",
+      shareText:
+        "Añade una marca de agua de texto o imagen en cada página de un PDF, generando una nueva copia con marca de agua.",
+      url: "https://www.pdfequips.com/add-watermark",
+    },
   }
 };
 

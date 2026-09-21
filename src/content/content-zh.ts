@@ -99,6 +99,32 @@ export const downloadFile: _downloadFile = {
     },
     backto: {
         "add-watermark": "返回至添加水印"
+    },
+    shareOverlayExtra: {
+        copiedText: "已复制",
+        copy_link: "复制链接",
+    },
+    premiumToast: {
+        variants: [
+            {
+                message: "想要更好的效果？试试 Premium 以获得更出色的排版和准确度！",
+                actionButton: "体验 Premium",
+            },
+            {
+                message: "想要无广告体验？Premium 可完全移除所有广告。",
+                actionButton: "升级 Premium",
+            },
+        ],
+    },
+    shareOverlay: {
+        "add-watermark": {
+            modalTitles: ["分享这份喜悦！", "分享给其他人！", "携手共创改变！"],
+            modalDescription:
+                "在文档对外发送之前，为每个页面印上 Logo、名称或“草稿”水印。",
+            shareText:
+                "在 PDF 的每个页面上添加文本或图片水印，并生成带有水印的新副本。",
+            url: "https://www.pdfequips.com/add-watermark",
+        },
     }
 };
 

@@ -96,6 +96,32 @@ export const downloadFile = {
   },
   backto: {
     "add-watermark": "Back to Add Watermark"
+  },
+  shareOverlayExtra: {
+    copiedText: "Copied",
+    copy_link: "Copy Link",
+  },
+  premiumToast: {
+    variants: [
+      {
+        message: "Want better results? Try Premium for superior formatting & accuracy!",
+        actionButton: "Try Premium",
+      },
+      {
+        message: "Prefer an ad-free experience? Premium removes ads entirely.",
+        actionButton: "Go Premium",
+      },
+    ],
+  },
+  shareOverlay: {
+    "add-watermark": {
+      modalTitles: ["Share the excitement!", "Spread the word!", "Together we can make an impact!"],
+      modalDescription:
+        "Stamping a logo, name, or 'draft' label across every page before a document goes out the door.",
+      shareText:
+        "Adds a text or image watermark across every page of a PDF, producing a new, watermarked copy.",
+      url: "https://www.pdfequips.com/add-watermark",
+    },
   }
 };
 export type ToolType = {

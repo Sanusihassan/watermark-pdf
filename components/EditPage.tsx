@@ -12,6 +12,7 @@ import { SubmitBtn } from "./EditArea/SubmitBtn";
 import Options from "./DisplayFile/Options";
 // import { WarningAlert } from "./WarningAlert";
 import type { Paths } from "../src/content/content";
+import { OutputFileNameInput } from "./DisplayFile/Options/OutputFileNameInput";
 
 type editPageProps = {
   extension: string;
@@ -109,6 +110,7 @@ const EditPage = ({
           cta={edit_page.filenameOptions.cta}
           lang={lang}
         />
+        <OutputFileNameInput content={edit_page.filenameOptions} />
         <div className="hide-onsmall">
           <SubmitBtn errors={errors} k={path} edit_page={edit_page} />
         </div>
