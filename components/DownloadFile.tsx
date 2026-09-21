@@ -7,6 +7,8 @@ import type { downloadFile } from "../src/content";
 import { useEffect, useState } from "react";
 import { useFileStore } from "../src/file-store";
 import { increaseDailySiteUsage } from "fetch-subscription-status";
+import { PremiumToast } from "./PremiumToast";
+import ShareOverlay from "./ShareOverlay";
 // Safari-safe blob download: runs synchronously inside the click handler
 // so the user-gesture chain stays intact.
 function saveBlob(blob: Blob, filename: string) {
@@ -155,6 +157,19 @@ const DownloadFile = ({
           </button>
         </div>
       </div>
+      {!subscriptionStatus ? (
+        <PremiumToast
+          content={downloadFile.premiumToast}
+          lang={lang}
+          theme={path}
+        />
+      ) : null}
+      <ShareOverlay
+        content={overlayContent}
+        isOpen={showShareOverlay}
+        extra={downloadFile.shareOverlayExtra}
+        onClose={() => setShowShareOverlay(false)}
+      />
     </>
   );
 };
