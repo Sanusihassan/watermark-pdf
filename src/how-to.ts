@@ -1,5 +1,3 @@
-// AUTO-GENERATED HOW-TO SCHEMAS – DO NOT EDIT
-
 import type { HowTo, WithContext } from "schema-dts";
 
 // ==================== DEFAULT (EN) ====================
